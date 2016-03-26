@@ -12,8 +12,13 @@ import Parse
 import FBSDKLoginKit
 import ParseFacebookUtilsV4
 import FBSDKCoreKit
+import HealthKit
+
 class ViewController: UIViewController {
    var dict: NSDictionary!
+    let healthManager:HealthManager = HealthManager();
+    var authorizedHealth = false;
+    var loggedIn = false;
     
     @IBAction func didTapFBLogin(sender: AnyObject) {
         
@@ -25,12 +30,15 @@ class ViewController: UIViewController {
               
                 if user.isNew {
                     print("User signed up and logged in through Facebook!")
+                    self.loggedIn = true;
                   //  self.loadData(user);
-                    self.performSegueWithIdentifier("ProfileViewController", sender: nil)
+                    //self.performSegueWithIdentifier("ProfileViewController", sender: nil)
                     
                 } else {
                     print("User logged in through Facebook!")
-                   self.performSegueWithIdentifier("ProfileViewController", sender: nil)
+                    self.loggedIn = true;
+                    if(self.authorizedHealth){
+                        self.performSegueWithIdentifier("ProfileViewController", sender: nil)}
                 }
             } else {
                 print("Uh oh. The user cancelled the Facebook login.")
@@ -39,15 +47,43 @@ class ViewController: UIViewController {
         
 
     }
+    
+    
+    // User must authorize Health Kit to get access to Health Data:
+    @IBAction func authorizeHealthKit(sender: AnyObject) {
+        
+        healthManager.authorizeHealthKit { (authorized,  error) -> Void in
+            
+            if authorized {
+               self.authorizedHealth = true;
+                print("HealthKit authorization received.")
+                if(self.loggedIn){
+                    self.performSegueWithIdentifier("ProfileViewController", sender: nil)}
+            }
+            else
+            {
+                print("HealthKit authorization denied!")
+                if error != nil {
+                    print("\(error)")
+                }
+            }
+        }
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
        
-        
+        let healthStore = HKHealthStore();
+        let authorizedVal = healthStore.authorizationStatusForType(HKObjectType.quantityTypeForIdentifier(HKQuantityTypeIdentifierActiveEnergyBurned)!) == HKAuthorizationStatus.SharingAuthorized
+       
+       
         let user = PFUser()
         var currentUser = PFUser.currentUser()!.username;
-        if (currentUser != nil){
+        if (currentUser != nil && authorizedVal){
             //loadData(user);
+            print(currentUser);
             print("here");
             self.performSegueWithIdentifier("ProfileViewController", sender: nil);
             

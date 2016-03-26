@@ -7,17 +7,55 @@
 //
 
 import UIKit
+import FBSDKShareKit
+import Parse
+import FBSDKLoginKit
+import ParseFacebookUtilsV4
+import FBSDKCoreKit
+import HealthKit
 
-class ProfileViewController: UIViewController {
-    var currentUser = PFUser.currentUser()!;
-    var dict = NSDictionary();
-    @IBOutlet weak var userNameLabel: UILabel!
+class ProfileViewController: UIViewController, FBSDKGameRequestDialogDelegate {
     
+    @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var friendCount: UILabel!
     @IBOutlet weak var profilePicture: UIImageView!
+    @IBOutlet weak var ageLabel: UILabel!
+    @IBOutlet weak var biologicalSexLabel: UILabel!
+    @IBOutlet weak var heightLabel: UILabel!
+    @IBOutlet weak var weightLabel: UILabel!
+    @IBOutlet weak var caloriesLabel: UILabel!
+    
+    var currentUser = PFUser.currentUser()!;
+    var dict = NSDictionary();
+    let healthManager:HealthManager = HealthManager();
+    let kUnknownString   = "Unknown"
+    var healthStore :HKHealthStore = HKHealthStore();
+ 
+    
+    // Method to Add Friends/ Invite Them on FB:
+    @IBAction func addFriends(sender: AnyObject) {
+        let fbID = 978384415587929;
+        print("here adding friends!");
+         var gameRequestContent = FBSDKGameRequestContent();
+        // Look at FBSDKGameRequestContent for futher optional properties
+        gameRequestContent.message = "Play and Get Fit on ProFit";
+        gameRequestContent.title = "Add Friends on ProFit!";
+        
+        // Assuming self implements <FBSDKGameRequestDialogDelegate>
+        var dialog = FBSDKGameRequestDialog();
+        dialog.delegate = self;
+        dialog.content = gameRequestContent;
+        if(dialog.canShow()){
+            dialog.show();
+        }
+        
+       
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //updateHealthInfo()
         //loadData(currentUser);
         //userNameLabel.text = self.dict.objectForKey("name");
         // Do any additional setup after loading the view.
@@ -30,9 +68,9 @@ class ProfileViewController: UIViewController {
                     self.dict = result as! NSDictionary
                     print(self.dict);
                     self.userNameLabel.text = self.dict.objectForKey("name") as? String;
-                    let friend = self.dict.objectForKey("friends")?.objectForKey("summary")?.objectForKey("total_count")
+                    var friend = self.dict.objectForKey("friends")?.objectForKey("summary")?.objectForKey("total_count")
                     //print(friend!)
-                    let friendCount = friend as? NSNumber
+                   let friendCount = friend as? NSNumber
                     let friendCountString = "\(friendCount!)";
                     self.friendCount.text = friendCountString;
                     
@@ -40,10 +78,8 @@ class ProfileViewController: UIViewController {
                     // uInfo.setObject(self.dict.objectForKey("name")?.objectForKey("data") as! String, forKey: "name");
                     //uInfo.setObject(self.dict.objectForKey("picture")?.objectForKey("data")?.objectForKey("url") as! String, forKey: "picture");
                     let pictureURL=self.dict.objectForKey("picture")?.objectForKey("data")?.objectForKey("url") as! String;
-                    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
-                        print(pictureURL);
-                        self.profilePicture.image =  UIImage(data: NSData(contentsOfURL: NSURL(string:pictureURL)!)!)
-                        
+                    ImageLoader.sharedLoader.imageForUrl(pictureURL, completionHandler:{(image: UIImage?, url: String) in
+                        self.profilePicture.image = image!
                     })
                     
                 }
@@ -85,6 +121,7 @@ class ProfileViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated);
         loadData(currentUser);
+      updateHealthInfo()
         
     }
     
@@ -94,8 +131,6 @@ class ProfileViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -103,6 +138,170 @@ class ProfileViewController: UIViewController {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
-    */
+    
+    func gameRequestDialog(gameRequestDialog: FBSDKGameRequestDialog!, didCompleteWithResults results: [NSObject : AnyObject]!) {
+        print("here!");
+        print(results);
+        return;
+    }
+    func gameRequestDialog(gameRequestDialog: FBSDKGameRequestDialog!, didFailWithError error: NSError!) {
+        print("failed");
+        return;
+    }
+    func gameRequestDialogDidCancel(gameRequestDialog: FBSDKGameRequestDialog!) {
+        print("hello");
+        return;
+    }
 
+    var bmi:Double?
+    var height, weight:HKQuantitySample?
+    var calories: Double?
+    var currentCalories: Double?
+    func updateHealthInfo() {
+        
+        updateProfileInfo();
+        updateWeight();
+        updateHeight();
+        updateCalories();
+        
+    }
+    
+    func updateProfileInfo()
+    {
+        let profile = healthManager.readProfile()
+        
+        ageLabel.text = profile.age == nil ? kUnknownString : String(profile.age!)
+        biologicalSexLabel.text = biologicalSexLiteral(profile.biologicalsex?.biologicalSex)
+     //   bloodTypeLabel.text = bloodTypeLiteral(profile?.bloodtype?.bloodType)
+    }
+    
+    
+    func updateHeight()
+    {
+        // 1. Construct an HKSampleType for Height
+        let sampleType = HKSampleType.quantityTypeForIdentifier(HKQuantityTypeIdentifierHeight)
+        
+        // 2. Call the method to read the most recent Height sample
+        self.healthManager.readMostRecentSample(sampleType!, completion: { (mostRecentHeight, error) -> Void in
+            
+            if( error != nil )
+            {
+                print("Error reading height from HealthKit Store: \(error.localizedDescription)")
+                return;
+            }
+            
+            var heightLocalizedString = self.kUnknownString;
+            self.height = mostRecentHeight as? HKQuantitySample;
+            // 3. Format the height to display it on the screen
+            if let meters = self.height?.quantity.doubleValueForUnit(HKUnit.meterUnit()) {
+                let heightFormatter = NSLengthFormatter()
+                heightFormatter.forPersonHeightUse = true;
+                heightLocalizedString = heightFormatter.stringFromMeters(meters);
+            }
+            
+            
+            // 4. Update UI. HealthKit use an internal queue. We make sure that we interact with the UI in the main thread
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                self.heightLabel.text = heightLocalizedString
+                //self.updateBMI()
+            });
+        })
+        
+        
+    }
+    
+    func updateCalories()
+    { // This method obtains calories burned over past day from midnight of current day to current time
+        self.calories = 0;
+        // 1. Construct an HKSampleType for Height
+       let sampleType = HKSampleType.quantityTypeForIdentifier(HKQuantityTypeIdentifierActiveEnergyBurned)
+        
+        self.healthManager.readPastDayEnergy(sampleType!, completion: { (mostRecentCalories, error) -> Void in
+            
+            if( error != nil )
+            {
+                print("Error reading calories from HealthKit Store: \(error.localizedDescription)")
+                return;
+            }
+            else{
+            var calLocalizedString = self.kUnknownString;
+            self.calories = mostRecentCalories
+                if self.calories > 0{
+                    self.currentCalories = mostRecentCalories * 0.000239006; // converts joules to kilocalories
+                    
+                    print("Current Calories:\(self.currentCalories)");
+                    let calFomatter = NSEnergyFormatter();
+                    calFomatter.forFoodEnergyUse = true;
+                    calLocalizedString = calFomatter.stringFromJoules(self.calories!)
+                }
+            
+            
+            // 4. Update UI. HealthKit use an internal queue. We make sure that we interact with the UI in the main thread
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+               
+                self.caloriesLabel.text = calLocalizedString;
+                //self.updateBMI()
+            });
+        }
+        })
+        
+    }
+    
+    
+    func updateWeight()
+    {
+        // 1. Construct an HKSampleType for weight
+        let sampleType = HKSampleType.quantityTypeForIdentifier(HKQuantityTypeIdentifierBodyMass)
+        
+        // 2. Call the method to read the most recent weight sample
+        self.healthManager.readMostRecentSample(sampleType!, completion: { (mostRecentWeight, error) -> Void in
+            
+            if( error != nil )
+            {
+                print("Error reading weight from HealthKit Store: \(error.localizedDescription)")
+                return;
+            }
+            
+            var weightLocalizedString = self.kUnknownString;
+            // 3. Format the weight to display it on the screen
+            self.weight = mostRecentWeight as? HKQuantitySample;
+            if let kilograms = self.weight?.quantity.doubleValueForUnit(HKUnit.gramUnitWithMetricPrefix(.Kilo)) {
+                let weightFormatter = NSMassFormatter()
+                weightFormatter.forPersonMassUse = true;
+                weightLocalizedString = weightFormatter.stringFromKilograms(kilograms)
+            }
+            
+            // 4. Update UI in the main thread
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                self.weightLabel.text = weightLocalizedString
+              //  self.updateBMI()
+                
+            });
+        });
+    }
+    
+ 
+    
+
+    // MARK: - utility methods
+    func biologicalSexLiteral(biologicalSex:HKBiologicalSex?)->String
+    {
+        var biologicalSexText = kUnknownString;
+        
+        if  biologicalSex != nil {
+            
+            switch( biologicalSex! )
+            {
+            case .Female:
+                biologicalSexText = "Female"
+            case .Male:
+                biologicalSexText = "Male"
+            default:
+                break;
+            }
+            
+        }
+        return biologicalSexText;
+    }
+    
 }
