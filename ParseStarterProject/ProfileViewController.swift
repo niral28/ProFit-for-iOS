@@ -24,12 +24,81 @@ class ProfileViewController: UIViewController, FBSDKGameRequestDialogDelegate {
     @IBOutlet weak var heightLabel: UILabel!
     @IBOutlet weak var weightLabel: UILabel!
     @IBOutlet weak var caloriesLabel: UILabel!
+    @IBOutlet weak var dailyCalorieTracking: KDCircularProgress!
     
+    @IBOutlet weak var weeklyCalorieTracking: KDCircularProgress!
+    @IBOutlet weak var stepperValue: UIStepper!
+    @IBOutlet weak var weeklyStepperValue: UIStepper!
+    @IBOutlet weak var dailyCalorieGoalValue: UILabel!
+    @IBOutlet weak var weeklyCalorieGoalValue: UILabel!
+    @IBOutlet weak var weeklyCalorie: UILabel!
     var currentUser = PFUser.currentUser()!;
     var dict = NSDictionary();
+   
     let healthManager:HealthManager = HealthManager();
     let kUnknownString   = "Unknown"
     var healthStore :HKHealthStore = HKHealthStore();
+    var calorieGoal = 0.0;
+    var weeklyGoal = 0.0;
+    var currentStepperValue = 1.0;
+    var currentWeeklyStepperValue = 1.0;
+    @IBAction func updateWeeklyCalorieGoal(sender: AnyObject) {
+        if currentWeeklyStepperValue < weeklyStepperValue.value {
+            //print("plus");
+            //print("Stepper Value:");
+            //print(stepperValue.value);
+            //print(currentStepperValue);
+            currentWeeklyStepperValue = weeklyStepperValue.value;
+            ++weeklyGoal
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                self.weeklyCalorieGoalValue.text = "\(self.weeklyGoal)"
+                self.updateWeeklyCircularProgressBar();
+            });
+            
+        }
+        else {
+         
+            currentWeeklyStepperValue = weeklyStepperValue.value;
+            
+            --weeklyGoal
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                self.weeklyCalorieGoalValue.text = "\(self.calorieGoal)"
+                self.updateWeeklyCircularProgressBar();
+            });
+        }
+        
+    }
+    @IBAction func updateDailyCalorieGoal(sender: AnyObject) {
+        
+        if currentStepperValue < stepperValue.value {
+            print("plus");
+            print("Stepper Value:");
+            print(stepperValue.value);
+            print(currentStepperValue);
+            currentStepperValue = stepperValue.value;
+            ++calorieGoal
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                self.dailyCalorieGoalValue.text = "\(self.calorieGoal)"
+                 self.updateCircularProgressBar();
+            });
+            
+        }
+        else {
+            print("minus");
+            print("Stepper Value:");
+            print(stepperValue.value);
+            print(currentStepperValue);
+            currentStepperValue = stepperValue.value;
+            
+            --calorieGoal
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                self.dailyCalorieGoalValue.text = "\(self.calorieGoal)"
+                 self.updateCircularProgressBar();
+            });
+        }
+     
+ 
+    }
  
     
     // Method to Add Friends/ Invite Them on FB:
@@ -55,11 +124,36 @@ class ProfileViewController: UIViewController, FBSDKGameRequestDialogDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        dailyCalorieTracking.angle = 0;
+        calorieGoal = 2000;
+        weeklyGoal = 2000;
+        //stepperValue.value = 2000;
+        //updateCircularProgressBar();
         //updateHealthInfo()
         //loadData(currentUser);
         //userNameLabel.text = self.dict.objectForKey("name");
         // Do any additional setup after loading the view.
     }
+    
+    func updateCircularProgressBar(){
+        print("in circular progress bar");
+        
+        var angle = Int(self.currentCalories!/self.calorieGoal*360);
+        print("angle value:");
+        print(angle);
+        self.dailyCalorieTracking.animateFromAngle(0, toAngle: angle, duration: 0.5, completion: nil)
+        
+    }
+    func updateWeeklyCircularProgressBar(){
+        print("in circular progress bar");
+        
+        var angle = Int(self.currentCalories!/self.calorieGoal*360);
+        print("angle value:");
+        print(angle);
+        self.weeklyCalorieTracking.animateFromAngle(0, toAngle: angle, duration: 0.5, completion: nil)
+        
+    }
+    
     func loadData(uInfo:PFUser){
         
         if((FBSDKAccessToken.currentAccessToken()) != nil){
@@ -157,12 +251,14 @@ class ProfileViewController: UIViewController, FBSDKGameRequestDialogDelegate {
     var height, weight:HKQuantitySample?
     var calories: Double?
     var currentCalories: Double?
+   
     func updateHealthInfo() {
         
         updateProfileInfo();
         updateWeight();
         updateHeight();
         updateCalories();
+        updateWeeklyCalories();
         
     }
     
@@ -228,8 +324,6 @@ class ProfileViewController: UIViewController, FBSDKGameRequestDialogDelegate {
             self.calories = mostRecentCalories
                 if self.calories > 0{
                     self.currentCalories = mostRecentCalories * 0.000239006; // converts joules to kilocalories
-                    
-                    print("Current Calories:\(self.currentCalories)");
                     let calFomatter = NSEnergyFormatter();
                     calFomatter.forFoodEnergyUse = true;
                     calLocalizedString = calFomatter.stringFromJoules(self.calories!)
@@ -241,12 +335,48 @@ class ProfileViewController: UIViewController, FBSDKGameRequestDialogDelegate {
                
                 self.caloriesLabel.text = calLocalizedString;
                 //self.updateBMI()
+                 self.updateCircularProgressBar()
             });
         }
         })
         
     }
     
+    func updateWeeklyCalories()
+    { // This method obtains calories burned over past day from midnight of current day to current time
+        self.calories = 0;
+        // 1. Construct an HKSampleType for Height
+        let sampleType = HKSampleType.quantityTypeForIdentifier(HKQuantityTypeIdentifierActiveEnergyBurned)
+        
+        self.healthManager.readPastWeekEnergy(sampleType!, completion: { (mostRecentCalories, error) -> Void in
+            
+            if( error != nil )
+            {
+                print("Error reading calories from HealthKit Store: \(error.localizedDescription)")
+                return;
+            }
+            else{
+                var calLocalizedString = self.kUnknownString;
+                self.calories = mostRecentCalories
+                if self.calories > 0{
+                    self.currentCalories = mostRecentCalories * 0.000239006; // converts joules to kilocalories
+                    let calFomatter = NSEnergyFormatter();
+                    calFomatter.forFoodEnergyUse = true;
+                    calLocalizedString = calFomatter.stringFromJoules(self.calories!)
+                }
+                
+                
+                // 4. Update UI. HealthKit use an internal queue. We make sure that we interact with the UI in the main thread
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    
+                    self.weeklyCalorie.text = calLocalizedString;
+                    //self.updateBMI()
+                    self.updateCircularProgressBar()
+                });
+            }
+        })
+        
+    }
     
     func updateWeight()
     {
