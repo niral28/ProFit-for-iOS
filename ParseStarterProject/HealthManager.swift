@@ -228,6 +228,53 @@ class HealthManager {
         self.healthKitStore.executeQuery(sampleQuery)
     }
   
+    func readPastAllEnergy(sampleType:HKSampleType , completion: ((Double, NSError!) -> Void)!)
+    {
+        
+        // 1. Build the Predicate
+        guard let calendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian) else {
+            fatalError("*** This should never fail. ***")
+        }
+        
+        let now   = NSDate()
+        let past = calendar.dateByAddingUnit(.Day, value: -7, toDate: now, options: .WrapComponents);
+        
+        let mostRecentPredicate = HKQuery.predicateForSamplesWithStartDate(past, endDate:now, options: .None)
+        
+        // 2. Build the sort descriptor to return the samples in descending order
+        let sortDescriptor = NSSortDescriptor(key:HKSampleSortIdentifierStartDate, ascending: false)
+        // 3. There is no limit set
+        // 4. Build samples query
+        let sampleQuery = HKSampleQuery(sampleType: sampleType, predicate: mostRecentPredicate, limit: Int(HKObjectQueryNoLimit), sortDescriptors: [sortDescriptor])
+        { (sampleQuery, results, error ) -> Void in
+            
+            if let queryError = error {
+                print("Error Reading calories!")
+                completion(-1,error)
+                return;
+            }
+            print("calories:")
+            print(results?.endIndex);
+            
+            // Get the first sample
+            var mostRecentSample = 0.0;
+            if(results!.endIndex > 0){
+                for sample in results! {
+                    let s = sample as? HKQuantitySample;
+                    mostRecentSample += (s!).quantity.doubleValueForUnit(HKUnit.jouleUnit())
+                    
+                }
+            }
+            
+            // Execute the completion closure
+            if completion != nil {
+                completion(mostRecentSample,nil)
+            }
+        }
+        // 5. Execute the Query
+        self.healthKitStore.executeQuery(sampleQuery)
+    }
+    
   func saveBMISample(bmi:Double, date:NSDate ) {
     
     // 1. Create a BMI Sample

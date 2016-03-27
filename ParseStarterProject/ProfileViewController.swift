@@ -42,6 +42,7 @@ class ProfileViewController: UIViewController, FBSDKGameRequestDialogDelegate {
     var weeklyGoal = 0.0;
     var currentStepperValue = 1.0;
     var currentWeeklyStepperValue = 1.0;
+    
     @IBAction func updateWeeklyCalorieGoal(sender: AnyObject) {
         if currentWeeklyStepperValue < weeklyStepperValue.value {
             //print("plus");
@@ -62,7 +63,7 @@ class ProfileViewController: UIViewController, FBSDKGameRequestDialogDelegate {
             
             --weeklyGoal
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                self.weeklyCalorieGoalValue.text = "\(self.calorieGoal)"
+                self.weeklyCalorieGoalValue.text = "\(self.weeklyGoal)"
                 self.updateWeeklyCircularProgressBar();
             });
         }
@@ -145,9 +146,9 @@ class ProfileViewController: UIViewController, FBSDKGameRequestDialogDelegate {
         
     }
     func updateWeeklyCircularProgressBar(){
-        print("in circular progress bar");
+        print("in  weekly circular progress bar");
         
-        var angle = Int(self.currentCalories!/self.calorieGoal*360);
+        var angle = Int(self.weeklyCurrentCalories!/self.weeklyGoal*360);
         print("angle value:");
         print(angle);
         self.weeklyCalorieTracking.animateFromAngle(0, toAngle: angle, duration: 0.5, completion: nil)
@@ -250,7 +251,9 @@ class ProfileViewController: UIViewController, FBSDKGameRequestDialogDelegate {
     var bmi:Double?
     var height, weight:HKQuantitySample?
     var calories: Double?
+    var weeklyCalories:Double?
     var currentCalories: Double?
+    var weeklyCurrentCalories : Double?
    
     func updateHealthInfo() {
         
@@ -344,7 +347,7 @@ class ProfileViewController: UIViewController, FBSDKGameRequestDialogDelegate {
     
     func updateWeeklyCalories()
     { // This method obtains calories burned over past day from midnight of current day to current time
-        self.calories = 0;
+        self.weeklyCalories = 0;
         // 1. Construct an HKSampleType for Height
         let sampleType = HKSampleType.quantityTypeForIdentifier(HKQuantityTypeIdentifierActiveEnergyBurned)
         
@@ -357,12 +360,12 @@ class ProfileViewController: UIViewController, FBSDKGameRequestDialogDelegate {
             }
             else{
                 var calLocalizedString = self.kUnknownString;
-                self.calories = mostRecentCalories
-                if self.calories > 0{
-                    self.currentCalories = mostRecentCalories * 0.000239006; // converts joules to kilocalories
+                self.weeklyCalories = mostRecentCalories
+                if self.weeklyCalories > 0{
+                    self.weeklyCurrentCalories = mostRecentCalories * 0.000239006; // converts joules to kilocalories
                     let calFomatter = NSEnergyFormatter();
                     calFomatter.forFoodEnergyUse = true;
-                    calLocalizedString = calFomatter.stringFromJoules(self.calories!)
+                    calLocalizedString = calFomatter.stringFromJoules(self.weeklyCalories!)
                 }
                 
                 
@@ -371,7 +374,7 @@ class ProfileViewController: UIViewController, FBSDKGameRequestDialogDelegate {
                     
                     self.weeklyCalorie.text = calLocalizedString;
                     //self.updateBMI()
-                    self.updateCircularProgressBar()
+                    self.updateWeeklyCircularProgressBar()
                 });
             }
         })
