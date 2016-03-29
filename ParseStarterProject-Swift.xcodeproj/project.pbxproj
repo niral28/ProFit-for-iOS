@@ -7,7 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1A5400B41CA7A4460066D6C7 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A5400AD1CA7A4180066D6C7 /* Charts.framework */; };
+		1A0535041CA89C7400A67C3C /* pot-of-gold.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A0535031CA89C7400A67C3C /* pot-of-gold.png */; };
+		1A0535091CA9B7E000A67C3C /* SocialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0535081CA9B7E000A67C3C /* SocialViewController.swift */; };
+		1A05350D1CAA277900A67C3C /* wheel.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A05350C1CAA277900A67C3C /* wheel.png */; };
+		1A0535111CAA291D00A67C3C /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0535101CAA291D00A67C3C /* GameViewController.swift */; };
+		1A3646821CA86831001E1F82 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A36467A1CA86790001E1F82 /* Charts.framework */; };
+		1A3646831CA8683E001E1F82 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A36467A1CA86790001E1F82 /* Charts.framework */; };
+		1A3646841CA8683E001E1F82 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1A36467A1CA86790001E1F82 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1A5400B61CA7A6240066D6C7 /* starAvm.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A5400B51CA7A6240066D6C7 /* starAvm.png */; };
 		1A5400B81CA7A62C0066D6C7 /* shieldAvm.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A5400B71CA7A62C0066D6C7 /* shieldAvm.png */; };
 		1A6D7E901C99FAFA00342CAE /* HealthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A6D7E8F1C99FAFA00342CAE /* HealthManager.swift */; };
@@ -34,40 +40,67 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		1A5400AC1CA7A4180066D6C7 /* PBXContainerItemProxy */ = {
+		1A3646791CA86790001E1F82 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 1A5400A51CA7A4180066D6C7 /* Charts.xcodeproj */;
+			containerPortal = 1A3646721CA86790001E1F82 /* Charts.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 5BA8EC401A9D14DC00CE82E1;
 			remoteInfo = "Charts-iOS";
 		};
-		1A5400AE1CA7A4180066D6C7 /* PBXContainerItemProxy */ = {
+		1A36467B1CA86790001E1F82 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 1A5400A51CA7A4180066D6C7 /* Charts.xcodeproj */;
+			containerPortal = 1A3646721CA86790001E1F82 /* Charts.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = A52C5C371BAC5CA400594CDD;
 			remoteInfo = "Charts-TV";
 		};
-		1A5400B01CA7A4180066D6C7 /* PBXContainerItemProxy */ = {
+		1A36467D1CA86790001E1F82 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 1A5400A51CA7A4180066D6C7 /* Charts.xcodeproj */;
+			containerPortal = 1A3646721CA86790001E1F82 /* Charts.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 65B3F5BF1C7370BE000983D0;
 			remoteInfo = "Charts-OSX";
 		};
-		1A5400B21CA7A4180066D6C7 /* PBXContainerItemProxy */ = {
+		1A36467F1CA86790001E1F82 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 1A5400A51CA7A4180066D6C7 /* Charts.xcodeproj */;
+			containerPortal = 1A3646721CA86790001E1F82 /* Charts.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 06AEE7A21BDC3F8B009875AE;
 			remoteInfo = ChartsTests;
 		};
+		1A3646851CA8683E001E1F82 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1A3646721CA86790001E1F82 /* Charts.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 5BA8EC3F1A9D14DC00CE82E1;
+			remoteInfo = "Charts-iOS";
+		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		1A3646871CA8683E001E1F82 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				1A3646841CA8683E001E1F82 /* Charts.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		1A5400A51CA7A4180066D6C7 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = "../../ios-charts-master/Charts/Charts.xcodeproj"; sourceTree = "<group>"; };
+		1A0535031CA89C7400A67C3C /* pot-of-gold.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pot-of-gold.png"; sourceTree = "<group>"; };
+		1A0535081CA9B7E000A67C3C /* SocialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialViewController.swift; sourceTree = "<group>"; };
+		1A05350C1CAA277900A67C3C /* wheel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wheel.png; sourceTree = "<group>"; };
+		1A0535101CAA291D00A67C3C /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		1A3646721CA86790001E1F82 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = "../../ios-charts-master 2/Charts/Charts.xcodeproj"; sourceTree = "<group>"; };
 		1A5400B51CA7A6240066D6C7 /* starAvm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = starAvm.png; sourceTree = "<group>"; };
 		1A5400B71CA7A62C0066D6C7 /* shieldAvm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shieldAvm.png; sourceTree = "<group>"; };
+		1A6102621CA86371005D25B0 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		1A6102641CA86379005D25B0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		1A6D7E8F1C99FAFA00342CAE /* HealthManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthManager.swift; sourceTree = "<group>"; };
 		1A6D7E911C99FB9300342CAE /* ParseStarterProject-Swift.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "ParseStarterProject-Swift.entitlements"; sourceTree = "<group>"; };
 		1A6D7E961C9A0D9600342CAE /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
@@ -101,7 +134,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1A5400B41CA7A4460066D6C7 /* Charts.framework in Frameworks */,
+				1A3646821CA86831001E1F82 /* Charts.framework in Frameworks */,
 				1AB5F6B91C82405C00C3B06A /* Bolts.framework in Frameworks */,
 				1AB5F6B51C82388A00C3B06A /* ParseFacebookUtilsV4.framework in Frameworks */,
 				1AB5F6B71C82388A00C3B06A /* ParseUI.framework in Frameworks */,
@@ -113,6 +146,7 @@
 				1AB5F7C31C82417E00C3B06A /* FBSDKMessengerShareKit.framework in Frameworks */,
 				1AB5F7C21C82417E00C3B06A /* FBSDKLoginKit.framework in Frameworks */,
 				81BA81791A49E0DB00E65899 /* AudioToolbox.framework in Frameworks */,
+				1A3646831CA8683E001E1F82 /* Charts.framework in Frameworks */,
 				81BA81771A49E0D500E65899 /* libsqlite3.dylib in Frameworks */,
 				81BA81711A49DB6800E65899 /* Parse.framework in Frameworks */,
 			);
@@ -121,13 +155,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1A5400A61CA7A4180066D6C7 /* Products */ = {
+		1A3646731CA86790001E1F82 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1A5400AD1CA7A4180066D6C7 /* Charts.framework */,
-				1A5400AF1CA7A4180066D6C7 /* Charts.framework */,
-				1A5400B11CA7A4180066D6C7 /* Charts.framework */,
-				1A5400B31CA7A4180066D6C7 /* ChartsTests.xctest */,
+				1A36467A1CA86790001E1F82 /* Charts.framework */,
+				1A36467C1CA86790001E1F82 /* Charts.framework */,
+				1A36467E1CA86790001E1F82 /* Charts.framework */,
+				1A3646801CA86790001E1F82 /* ChartsTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -136,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				814C3AC81B69877600E307BB /* Images.xcassets */,
+				1A0535031CA89C7400A67C3C /* pot-of-gold.png */,
 				814C3AC91B69877600E307BB /* Info.plist */,
 			);
 			path = Resources;
@@ -144,7 +179,7 @@
 		81BA813C1A49DA1800E65899 = {
 			isa = PBXGroup;
 			children = (
-				1A5400A51CA7A4180066D6C7 /* Charts.xcodeproj */,
+				1A3646721CA86790001E1F82 /* Charts.xcodeproj */,
 				1A6D7E911C99FB9300342CAE /* ParseStarterProject-Swift.entitlements */,
 				1A8D7B9D1C822403002C5FFA /* Bridging-Header.h */,
 				81BA81471A49DA1800E65899 /* ParseStarterProject */,
@@ -166,6 +201,8 @@
 			isa = PBXGroup;
 			children = (
 				1A5400B51CA7A6240066D6C7 /* starAvm.png */,
+				1A0535081CA9B7E000A67C3C /* SocialViewController.swift */,
+				1A05350C1CAA277900A67C3C /* wheel.png */,
 				1A5400B71CA7A62C0066D6C7 /* shieldAvm.png */,
 				81BA814A1A49DA1800E65899 /* AppDelegate.swift */,
 				81BA814C1A49DA1800E65899 /* ViewController.swift */,
@@ -174,6 +211,7 @@
 				1A8D4D121CA743A6000A950C /* ImageLoader.swift */,
 				1A6D7E8F1C99FAFA00342CAE /* HealthManager.swift */,
 				1A8D4D141CA7474A000A950C /* CircularProgressBar.swift */,
+				1A0535101CAA291D00A67C3C /* GameViewController.swift */,
 			);
 			path = ParseStarterProject;
 			sourceTree = "<group>";
@@ -181,6 +219,8 @@
 		81BA816A1A49DB5600E65899 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1A6102641CA86379005D25B0 /* UIKit.framework */,
+				1A6102621CA86371005D25B0 /* QuartzCore.framework */,
 				1A8D4D0E1CA7400A000A950C /* CoreData.framework */,
 				1A6D7E961C9A0D9600342CAE /* HealthKit.framework */,
 				1AB5F6B81C82405C00C3B06A /* Bolts.framework */,
@@ -217,10 +257,12 @@
 				81BA81411A49DA1800E65899 /* Sources */,
 				81BA81421A49DA1800E65899 /* Frameworks */,
 				81BA81431A49DA1800E65899 /* Resources */,
+				1A3646871CA8683E001E1F82 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				1A3646861CA8683E001E1F82 /* PBXTargetDependency */,
 			);
 			name = "ParseStarterProject-Swift";
 			productName = ParseStarterProject;
@@ -261,8 +303,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 1A5400A61CA7A4180066D6C7 /* Products */;
-					ProjectRef = 1A5400A51CA7A4180066D6C7 /* Charts.xcodeproj */;
+					ProductGroup = 1A3646731CA86790001E1F82 /* Products */;
+					ProjectRef = 1A3646721CA86790001E1F82 /* Charts.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -273,32 +315,32 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		1A5400AD1CA7A4180066D6C7 /* Charts.framework */ = {
+		1A36467A1CA86790001E1F82 /* Charts.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = Charts.framework;
-			remoteRef = 1A5400AC1CA7A4180066D6C7 /* PBXContainerItemProxy */;
+			remoteRef = 1A3646791CA86790001E1F82 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		1A5400AF1CA7A4180066D6C7 /* Charts.framework */ = {
+		1A36467C1CA86790001E1F82 /* Charts.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = Charts.framework;
-			remoteRef = 1A5400AE1CA7A4180066D6C7 /* PBXContainerItemProxy */;
+			remoteRef = 1A36467B1CA86790001E1F82 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		1A5400B11CA7A4180066D6C7 /* Charts.framework */ = {
+		1A36467E1CA86790001E1F82 /* Charts.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = Charts.framework;
-			remoteRef = 1A5400B01CA7A4180066D6C7 /* PBXContainerItemProxy */;
+			remoteRef = 1A36467D1CA86790001E1F82 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		1A5400B31CA7A4180066D6C7 /* ChartsTests.xctest */ = {
+		1A3646801CA86790001E1F82 /* ChartsTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = ChartsTests.xctest;
-			remoteRef = 1A5400B21CA7A4180066D6C7 /* PBXContainerItemProxy */;
+			remoteRef = 1A36467F1CA86790001E1F82 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -312,6 +354,8 @@
 				1A5400B81CA7A62C0066D6C7 /* shieldAvm.png in Resources */,
 				814C3ACA1B69877600E307BB /* Main.storyboard in Resources */,
 				814C3ACB1B69877600E307BB /* Images.xcassets in Resources */,
+				1A0535041CA89C7400A67C3C /* pot-of-gold.png in Resources */,
+				1A05350D1CAA277900A67C3C /* wheel.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -324,7 +368,9 @@
 			files = (
 				1A8DA8541C95E0310078BE44 /* ProfileViewController.swift in Sources */,
 				81BA814D1A49DA1800E65899 /* ViewController.swift in Sources */,
+				1A0535091CA9B7E000A67C3C /* SocialViewController.swift in Sources */,
 				1A8D4D131CA743A6000A950C /* ImageLoader.swift in Sources */,
+				1A0535111CAA291D00A67C3C /* GameViewController.swift in Sources */,
 				81BA814B1A49DA1800E65899 /* AppDelegate.swift in Sources */,
 				1A6D7E901C99FAFA00342CAE /* HealthManager.swift in Sources */,
 				1A8D4D151CA7474A000A950C /* CircularProgressBar.swift in Sources */,
@@ -332,6 +378,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1A3646861CA8683E001E1F82 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Charts-iOS";
+			targetProxy = 1A3646851CA8683E001E1F82 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		814C3AC61B69877600E307BB /* Main.storyboard */ = {
@@ -434,6 +488,7 @@
 				CODE_SIGN_ENTITLEMENTS = "ParseStarterProject-Swift.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -461,6 +516,7 @@
 				CODE_SIGN_ENTITLEMENTS = "ParseStarterProject-Swift.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",

@@ -13,6 +13,7 @@ import FBSDKLoginKit
 import ParseFacebookUtilsV4
 import FBSDKCoreKit
 import HealthKit
+import Charts
 
 class ProfileViewController: UIViewController, FBSDKGameRequestDialogDelegate {
     
@@ -29,12 +30,14 @@ class ProfileViewController: UIViewController, FBSDKGameRequestDialogDelegate {
     @IBOutlet weak var weeklyCalorieTracking: KDCircularProgress!
     @IBOutlet weak var stepperValue: UIStepper!
     @IBOutlet weak var weeklyStepperValue: UIStepper!
+    @IBOutlet weak var fitCoinValue: UILabel!
     @IBOutlet weak var dailyCalorieGoalValue: UILabel!
     @IBOutlet weak var weeklyCalorieGoalValue: UILabel!
     @IBOutlet weak var weeklyCalorie: UILabel!
+    @IBOutlet weak var linechartView: LineChartView!
     var currentUser = PFUser.currentUser()!;
     var dict = NSDictionary();
-   
+   // var loaded = false;
     let healthManager:HealthManager = HealthManager();
     let kUnknownString   = "Unknown"
     var healthStore :HKHealthStore = HKHealthStore();
@@ -42,7 +45,7 @@ class ProfileViewController: UIViewController, FBSDKGameRequestDialogDelegate {
     var weeklyGoal = 0.0;
     var currentStepperValue = 1.0;
     var currentWeeklyStepperValue = 1.0;
-    
+    var fitCoinBankValue = 0.0
     @IBAction func updateWeeklyCalorieGoal(sender: AnyObject) {
         if currentWeeklyStepperValue < weeklyStepperValue.value {
             //print("plus");
@@ -128,6 +131,13 @@ class ProfileViewController: UIViewController, FBSDKGameRequestDialogDelegate {
         dailyCalorieTracking.angle = 0;
         calorieGoal = 2000;
         weeklyGoal = 2000;
+        drawGraph();
+        //getWeeklyData()
+        //plotPoints();
+        
+      
+       //drawWeeklyGraph();
+        
         //stepperValue.value = 2000;
         //updateCircularProgressBar();
         //updateHealthInfo()
@@ -176,7 +186,7 @@ class ProfileViewController: UIViewController, FBSDKGameRequestDialogDelegate {
                     ImageLoader.sharedLoader.imageForUrl(pictureURL, completionHandler:{(image: UIImage?, url: String) in
                         self.profilePicture.image = image!
                     })
-                    
+                         //self.getWeeklyData();
                 }
             })
         }
@@ -309,7 +319,7 @@ class ProfileViewController: UIViewController, FBSDKGameRequestDialogDelegate {
         
     }
     
-    func updateCalories()
+    func updateCalories() // updates calorie when user opens app.
     { // This method obtains calories burned over past day from midnight of current day to current time
         self.calories = 0;
         // 1. Construct an HKSampleType for Height
@@ -380,6 +390,236 @@ class ProfileViewController: UIViewController, FBSDKGameRequestDialogDelegate {
         })
         
     }
+    
+    func drawGraph(){
+        self.getWeeklyData();
+        self.plotPoints();
+    }
+    
+    func drawWeeklyGraph()
+    { // This method obtains calories burned over past day from midnight of current day to current time
+        //self.weeklyCalories = 0;
+        // 1. Construct an HKSampleType for Height
+        var dataArray = [Double]();
+        let sampleType = HKSampleType.quantityTypeForIdentifier(HKQuantityTypeIdentifierActiveEnergyBurned)
+
+        self.healthManager.readPastAllEnergy(sampleType!, completion: { (mostRecentCalories, error) -> Void in
+            
+            if( error != nil )
+            {
+                print("Error reading calories from HealthKit Store: \(error.localizedDescription)")
+                return;
+            }
+            else{
+                var calLocalizedString = self.kUnknownString;
+                var chartVals:[ChartDataEntry] = []
+                var i = 0;
+                var dataPoints = [String]();
+                
+                if mostRecentCalories.count > 1 {
+                    guard let calendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian) else {
+                        fatalError("*** This should never fail. ***")
+                    }
+                    var endDate = NSDate();
+                    var startDate = calendar.dateByAddingUnit(.Day, value: -6, toDate: endDate, options: .WrapComponents);
+                for sample in mostRecentCalories {
+                   print(sample);
+                    var calSample = sample * 0.000239006*1000; // converts joules to kilocalories
+                    print(calSample);
+                    let dataEntry = ChartDataEntry(value: calSample, xIndex: i)
+                    chartVals.append(dataEntry)
+                    print(i)
+                    var month = "\(calendar.component(.Month, fromDate: startDate!))"
+                    dataPoints.append("\(month)/\(calendar.component(.Day, fromDate: startDate!))");
+                
+                    ++i
+                    startDate = calendar.dateByAddingUnit(.Day, value: 1, toDate: startDate!, options: .WrapComponents);
+                    }
+                    // 4. Update UI. HealthKit use an internal queue. We make sure that we interact with the UI in the main thread
+                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                        let lineChartDataSet = LineChartDataSet(yVals: chartVals, label: "Calories")
+                        //lineChartDataSet.drawCirclesEnabled = false;
+                        lineChartDataSet.drawCubicEnabled = true;
+                        //lineChartDataSet.colors = ChartColorTemplates.colorful();
+                    
+                        let lineChartData = LineChartData(xVals: dataPoints, dataSet: lineChartDataSet)
+                        self.linechartView.data = lineChartData
+                        self.linechartView.data?.setValueTextColor(UIColor.blackColor())
+                        
+                        
+                        
+                        
+                        self.linechartView.descriptionText = ""
+                        var yaxis = ChartYAxis();
+                        var xaxis = ChartXAxis();
+                        xaxis = self.linechartView.xAxis;
+                        xaxis.wordWrapEnabled = true;
+                        xaxis.spaceBetweenLabels = 1
+                        xaxis.labelPosition = .Top;
+        
+                        yaxis = self.linechartView.leftAxis;
+                        yaxis.enabled = true;
+                      
+                        var yaxis2 = self.linechartView.rightAxis;
+                        yaxis2.enabled = false;
+                    
+
+                        self.linechartView.animate(xAxisDuration: 0.2, yAxisDuration: 0.2, easingOptionX: .EaseInCubic, easingOptionY: .EaseInCubic)
+                        
+                        
+                    });
+                }
+   
+            }
+        })
+        
+    }
+    
+    /*var dataArray:[Double] = [];
+    var chartVals2:[ChartDataEntry] = []
+      var dataPoints2 = [String]();
+    
+    func getCaloriesDay(d:NSDate){
+        print("in drawGraph");
+        
+        var sampleValue = 0.0;
+        let sampleType = HKSampleType.quantityTypeForIdentifier(HKQuantityTypeIdentifierActiveEnergyBurned)
+        var endDate = d;
+      
+        var x = healthManager.readDayEnergy(sampleType!, date: d, completion: { (mostRecentCalories, error) -> Void in
+                
+                if( error != nil )
+                {
+                    print("Error reading calories from HealthKit Store: \(error.localizedDescription)")
+                    return
+                }
+                else{
+                    var calVal = mostRecentCalories * 0.000239006
+            
+                }
+                    // 4. Update UI. HealthKit use an internal queue. We make sure that we interact with the UI in the main thread
+        
+        
+        
+        
+        });
+        
+       
+    
+    }*/
+    
+    func getWeeklyData () { // statistics
+        
+        
+        let calendar = NSCalendar.currentCalendar()
+        
+        let interval = NSDateComponents()
+        interval.day = 1
+        
+        // Set the anchor date to Monday at 3:00 a.m.
+        let anchorComponents = calendar.components([.Day, .Month, .Year, .Weekday], fromDate: NSDate())
+        anchorComponents.hour = 1
+        
+        //let offset = (7 + anchorComponents.weekday - 2) % 7
+        anchorComponents.day = 1;
+        anchorComponents.hour = 1
+        
+        guard let anchorDate = calendar.dateFromComponents(anchorComponents) else {
+            fatalError("*** unable to create a valid date from the given components ***")
+        }
+        
+        guard let quantityType = HKObjectType.quantityTypeForIdentifier(HKQuantityTypeIdentifierActiveEnergyBurned) else {
+            fatalError("*** Unable to create a step count type ***")
+        }
+        
+        // Create the query
+        let query = HKStatisticsCollectionQuery(quantityType: quantityType,
+                                                quantitySamplePredicate: nil,
+                                                options: .CumulativeSum,
+                                                anchorDate: anchorDate,
+                                                intervalComponents: interval)
+        
+        // Set the results handler
+        query.initialResultsHandler = {
+            query, results, error in
+            
+            guard let statsCollection = results else {
+                // Perform proper error handling here
+                fatalError("*** An error occurred while calculating the statistics: \(error?.localizedDescription) ***")
+            }
+            
+            let endDate = NSDate()
+            
+            guard let startDate = calendar.dateByAddingUnit(.Day, value: -7, toDate: endDate, options: []) else {
+                fatalError("*** Unable to calculate the start date ***")
+            }
+            
+            // Plot data over past week
+            statsCollection.enumerateStatisticsFromDate(startDate, toDate: endDate) { [unowned self] statistics, stop in
+                
+                if let quantity = statistics.sumQuantity() {
+                    let date = statistics.startDate
+                    let value = quantity.doubleValueForUnit(HKUnit.jouleUnit()) * 0.000239006;
+                    print(value);
+                    // Call a custom method to plot each data point.
+                    //self.plotWeeklyStepCount(value, forDate: date)
+                    self.addPoints(value, forDate: date)
+                }
+            }
+        }
+        healthStore.executeQuery(query)
+        plotPoints();
+    }
+    
+    var chartVals:[ChartDataEntry] = []
+    var dataPoints = [String]();
+    var index = 0;
+   
+    func addPoints(value:Double, forDate:NSDate ){
+        let calendar = NSCalendar.currentCalendar()
+        let dataEntry = ChartDataEntry(value: value, xIndex: self.index)
+        print(value);
+        chartVals.append(dataEntry)
+        let month = calendar.component(.Month, fromDate: forDate)
+        let day = calendar.component(.Day, fromDate: forDate)
+        dataPoints.append("\(month)/\(day)")
+        self.index++;
+    }
+    
+    func plotPoints (){
+        
+        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+            let lineChartDataSet = LineChartDataSet(yVals: self.chartVals, label: "Calories")
+            //lineChartDataSet.drawCirclesEnabled = false;
+            lineChartDataSet.drawCubicEnabled = true;
+            //lineChartDataSet.colors = ChartColorTemplates.colorful();
+            
+            let lineChartData = LineChartData(xVals: self.dataPoints, dataSet: lineChartDataSet)
+            self.linechartView.data = lineChartData
+            self.linechartView.data?.setValueTextColor(UIColor.blackColor())
+            
+            
+            
+            
+            self.linechartView.descriptionText = ""
+            var yaxis = ChartYAxis();
+            var xaxis = ChartXAxis();
+            xaxis = self.linechartView.xAxis;
+            xaxis.wordWrapEnabled = true;
+            xaxis.spaceBetweenLabels = 1
+           // xaxis.labelPosition = .Bottom;
+            
+            yaxis = self.linechartView.leftAxis;
+            yaxis.enabled = true;
+            
+            var yaxis2 = self.linechartView.rightAxis;
+            yaxis2.enabled = false;
+            
+            
+            self.linechartView.animate(xAxisDuration: 0.2, yAxisDuration: 0.2, easingOptionX: .EaseInCubic, easingOptionY: .EaseInCubic)
+        });
+    }
+    
     
     func updateWeight()
     {

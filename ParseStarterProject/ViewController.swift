@@ -14,6 +14,7 @@ import ParseFacebookUtilsV4
 import FBSDKCoreKit
 import HealthKit
 
+
 class ViewController: UIViewController {
    var dict: NSDictionary!
     let healthManager:HealthManager = HealthManager();
