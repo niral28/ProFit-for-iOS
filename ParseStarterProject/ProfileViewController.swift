@@ -374,7 +374,7 @@ class ProfileViewController: UIViewController, FBSDKGameRequestDialogDelegate {
     
     func updateFitCoins() {
         if self.gender == 1 {
-            self.fitCoinBankValue += (((Double(self.age) * 0.2017) - (Double(self.weightVal)*0.09036)) + (Double(self.heartRate)*0.6309) - 55.0969)/4.184 * 1.5;
+            self.fitCoinBankValue += (((Double(self.age) * 0.2017) - (Double(self.weightVal)*0.09036)) + (Double(self.heartRate)*0.6309) - 55.0969)/4.184 * 10;
              print("FitCoin Value: \(fitCoinBankValue)");
             
             let fitCoinInt  = Int(self.fitCoinBankValue);
@@ -386,7 +386,7 @@ class ProfileViewController: UIViewController, FBSDKGameRequestDialogDelegate {
             
         } else {
             print("gender female");
-            self.fitCoinBankValue += (((Double(self.age)*0.074) - (Double(self.weightVal)*0.05741)) + (Double(self.heartRate)*0.4472) - 20.4022)/4.184 * 1;
+            self.fitCoinBankValue += (((Double(self.age)*0.074) - (Double(self.weightVal)*0.05741)) + (Double(self.heartRate)*0.4472) - 20.4022)/4.184 * 10;
             var secondTab = self.tabBarController?.viewControllers![2] as! GameViewController
             secondTab.fitCoins = self.fitCoinBankValue
             print("Female FitCoinValue:\(self.fitCoinBankValue)");

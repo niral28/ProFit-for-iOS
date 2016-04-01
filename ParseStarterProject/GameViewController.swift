@@ -19,6 +19,7 @@ class GameViewController: UIViewController {
         fitCoinLabel.text = "\(Int(fitCoins))"
         workoutExplanation.text = "Spin the wheel and we'll generate an exercise for you!"
         
+        
         // Do any additional setup after loading the view.
     }
 
@@ -209,14 +210,14 @@ class GameViewController: UIViewController {
             
         });
     }
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    /*override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        var secondTab = self.popoverPresentationController as! ArenaViewController
+        secondTab.fitCoinValue = self.fitCoins
+    }*/
+    
 
 }
