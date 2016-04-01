@@ -86,7 +86,7 @@ class ViewController: UIViewController {
             //loadData(user);
             print(currentUser);
             print("here");
-            self.performSegueWithIdentifier("ProfileViewController", sender: nil);
+            //self.performSegueWithIdentifier("ProfileViewController", sender: nil);
             
             //self.presentViewController(ProfileViewController, animated: true, completion: nil)
              //self.performSegueWithIdentifier("ProfileViewController", sender: nil)

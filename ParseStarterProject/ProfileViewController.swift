@@ -250,8 +250,8 @@ class ProfileViewController: UIViewController, FBSDKGameRequestDialogDelegate {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        var secondTab = self.tabBarController?.viewControllers![1] as! GameViewController
-        secondTab.fitCoins = self.fitCoinBankValue
+       // var secondTab = self.tabBarController?.viewControllers![1] as! GameViewController
+        //secondTab.fitCoins = self.fitCoinBankValue
     }
     
     func gameRequestDialog(gameRequestDialog: FBSDKGameRequestDialog!, didCompleteWithResults results: [NSObject : AnyObject]!) {
