@@ -46,6 +46,10 @@ class ProfileViewController: UIViewController, FBSDKGameRequestDialogDelegate {
     var currentStepperValue = 1.0;
     var currentWeeklyStepperValue = 1.0;
     var fitCoinBankValue = 0.0
+    var gender = 1; //male is gender 1 , female is gender 0
+    var weightVal = 165.0;
+    var age = 20;
+    var heartRate = 140;
     @IBAction func updateWeeklyCalorieGoal(sender: AnyObject) {
         if currentWeeklyStepperValue < weeklyStepperValue.value {
             //print("plus");
@@ -129,9 +133,12 @@ class ProfileViewController: UIViewController, FBSDKGameRequestDialogDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         dailyCalorieTracking.angle = 0;
-        calorieGoal = 2000;
+        calorieGoal = 1000;
         weeklyGoal = 2000;
+        updateFitCoins();
         drawGraph();
+        var secondTab = self.tabBarController?.viewControllers![2] as! GameViewController
+        secondTab.fitCoins = self.fitCoinBankValue
         //getWeeklyData()
         //plotPoints();
         
@@ -161,6 +168,8 @@ class ProfileViewController: UIViewController, FBSDKGameRequestDialogDelegate {
         var angle = Int(self.weeklyCurrentCalories!/self.weeklyGoal*360);
         print("angle value:");
         print(angle);
+        print(" current weekly calories:")
+        print("\(self.weeklyCurrentCalories)");
         self.weeklyCalorieTracking.animateFromAngle(0, toAngle: angle, duration: 0.5, completion: nil)
         
     }
@@ -228,6 +237,7 @@ class ProfileViewController: UIViewController, FBSDKGameRequestDialogDelegate {
         loadData(currentUser);
       updateHealthInfo()
         
+        
     }
     
 
@@ -240,8 +250,8 @@ class ProfileViewController: UIViewController, FBSDKGameRequestDialogDelegate {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        var secondTab = self.tabBarController?.viewControllers![1] as! GameViewController
+        secondTab.fitCoins = self.fitCoinBankValue
     }
     
     func gameRequestDialog(gameRequestDialog: FBSDKGameRequestDialog!, didCompleteWithResults results: [NSObject : AnyObject]!) {
@@ -280,6 +290,7 @@ class ProfileViewController: UIViewController, FBSDKGameRequestDialogDelegate {
         let profile = healthManager.readProfile()
         
         ageLabel.text = profile.age == nil ? kUnknownString : String(profile.age!)
+        self.age = profile.age!;
         biologicalSexLabel.text = biologicalSexLiteral(profile.biologicalsex?.biologicalSex)
      //   bloodTypeLabel.text = bloodTypeLiteral(profile?.bloodtype?.bloodType)
     }
@@ -341,6 +352,10 @@ class ProfileViewController: UIViewController, FBSDKGameRequestDialogDelegate {
                     calFomatter.forFoodEnergyUse = true;
                     calLocalizedString = calFomatter.stringFromJoules(self.calories!)
                     
+                    self.currentUser.setValue(self.currentCalories, forKey: "Calories")
+                    self.currentUser.setValue(self.weeklyGoal, forKey: "weeklyGoal")
+                    self.currentUser.setValue(self.calorieGoal, forKey: "dailyGoal")
+                    self.currentUser.saveInBackground()
                 }
             
             
@@ -351,9 +366,31 @@ class ProfileViewController: UIViewController, FBSDKGameRequestDialogDelegate {
                 //self.updateBMI()
                  self.updateCircularProgressBar()
             });
-        }
+                
+            }
         })
         
+    }
+    
+    func updateFitCoins() {
+        if self.gender == 1 {
+            self.fitCoinBankValue += (((Double(self.age) * 0.2017) - (Double(self.weightVal)*0.09036)) + (Double(self.heartRate)*0.6309) - 55.0969)/4.184 * 1.5;
+             print("FitCoin Value: \(fitCoinBankValue)");
+            
+            let fitCoinInt  = Int(self.fitCoinBankValue);
+            print("FitCoin Value: \(fitCoinInt)");
+            self.fitCoinValue.text = "\(fitCoinInt)";
+            print("gender male");
+            
+        } else {
+            print("gender female");
+            self.fitCoinBankValue += (((Double(self.age)*0.074) - (Double(self.weightVal)*0.05741)) + (Double(self.heartRate)*0.4472) - 20.4022)/4.184 * 1;
+            print("Female FitCoinValue:\(self.fitCoinBankValue)");
+            
+            let fitCoinInt  = Int(self.fitCoinBankValue);
+            
+            self.fitCoinValue.text = "\(fitCoinInt)";
+        }
     }
     
     func updateWeeklyCalories()
@@ -372,21 +409,36 @@ class ProfileViewController: UIViewController, FBSDKGameRequestDialogDelegate {
             else{
                 var calLocalizedString = self.kUnknownString;
                 self.weeklyCalories = mostRecentCalories
-                if self.weeklyCalories > 0{
+                
+                if self.weeklyCalories > 0 {
                     self.weeklyCurrentCalories = mostRecentCalories * 0.000239006; // converts joules to kilocalories
+                    print("weekly current calories");
+                    print(self.weeklyCurrentCalories);
                     let calFomatter = NSEnergyFormatter();
                     calFomatter.forFoodEnergyUse = true;
-                    calLocalizedString = calFomatter.stringFromJoules(self.weeklyCalories!)
+                    calLocalizedString = calFomatter.stringFromJoules(self.weeklyCurrentCalories!)
+                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                        
+                        self.weeklyCalorie.text = calLocalizedString;
+                        //self.updateBMI()
+                        self.updateWeeklyCircularProgressBar()
+                    });
+                } else{
+                    self.weeklyCurrentCalories = 1110;
+                    let calFomatter = NSEnergyFormatter();
+                    calFomatter.forFoodEnergyUse = true;
+                    calLocalizedString = calFomatter.stringFromJoules(self.weeklyCurrentCalories!)
+                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                        
+                        self.weeklyCalorie.text = "1110 cal"
+                        //self.updateBMI()
+                        self.updateWeeklyCircularProgressBar()
+                    });
                 }
                 
                 
                 // 4. Update UI. HealthKit use an internal queue. We make sure that we interact with the UI in the main thread
-                dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                    
-                    self.weeklyCalorie.text = calLocalizedString;
-                    //self.updateBMI()
-                    self.updateWeeklyCircularProgressBar()
-                });
+             
             }
         })
         
@@ -561,7 +613,7 @@ class ProfileViewController: UIViewController, FBSDKGameRequestDialogDelegate {
                 if let quantity = statistics.sumQuantity() {
                     let date = statistics.startDate
                     let value = quantity.doubleValueForUnit(HKUnit.jouleUnit()) * 0.000239006;
-                    print(value);
+                 
                     // Call a custom method to plot each data point.
                     //self.plotWeeklyStepCount(value, forDate: date)
                     self.addPoints(value, forDate: date)
@@ -643,6 +695,7 @@ class ProfileViewController: UIViewController, FBSDKGameRequestDialogDelegate {
                 let weightFormatter = NSMassFormatter()
                 weightFormatter.forPersonMassUse = true;
                 weightLocalizedString = weightFormatter.stringFromKilograms(kilograms)
+                self.weightVal = kilograms;
             }
             
             // 4. Update UI in the main thread
@@ -668,9 +721,12 @@ class ProfileViewController: UIViewController, FBSDKGameRequestDialogDelegate {
             {
             case .Female:
                 biologicalSexText = "Female"
+                self.gender = 0;
             case .Male:
                 biologicalSexText = "Male"
+                self.gender = 1;
             default:
+                self.gender = 1;
                 break;
             }
             

@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ParseStarterProject/ProfileViewController.swift"
-            timestampString = "480955385.046516"
+            timestampString = "481179291.618761"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "339"
-            endingLineNumber = "339"
+            startingLineNumber = "350"
+            endingLineNumber = "350"
             landmarkName = "updateCalories()"
             landmarkType = "5">
          </BreakpointContent>
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ParseStarterProject/ProfileViewController.swift"
-            timestampString = "480955385.046516"
+            timestampString = "481168632.45719"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "85"
-            endingLineNumber = "85"
+            startingLineNumber = "89"
+            endingLineNumber = "89"
             landmarkName = "updateDailyCalorieGoal(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -56,12 +56,12 @@
                   moduleName = "ParseStarterProject-Swift"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/niralshah/Desktop/parse-starter-project-1.12.0/ParseStarterProject-Swift/ParseStarterProject/GameViewController.swift"
-                  timestampString = "481162252.951344"
+                  timestampString = "481179678.874376"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "13"
                   endingLineNumber = "13"
-                  offsetFromSymbolStart = "70">
+                  offsetFromSymbolStart = "72">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -71,12 +71,12 @@
                   moduleName = "ParseStarterProject-Swift"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/niralshah/Desktop/parse-starter-project-1.12.0/ParseStarterProject-Swift/ParseStarterProject/GameViewController.swift"
-                  timestampString = "481162252.951439"
+                  timestampString = "481179678.874522"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "13"
                   endingLineNumber = "13"
-                  offsetFromSymbolStart = "28">
+                  offsetFromSymbolStart = "31">
                </Location>
             </Locations>
          </BreakpointContent>

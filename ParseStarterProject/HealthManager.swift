@@ -238,7 +238,8 @@ class HealthManager {
             fatalError("*** This should never fail. ***")
         }
         
-        let now   = NSDate()
+        var now   = NSDate()
+        now = calendar.dateByAddingUnit(.Day, value: -1, toDate: now, options: .WrapComponents)!;
         let past = calendar.dateByAddingUnit(.Day, value: -7, toDate: now, options: .WrapComponents);
         
         let mostRecentPredicate = HKQuery.predicateForSamplesWithStartDate(past, endDate:now, options: .None)
@@ -264,9 +265,11 @@ class HealthManager {
                 for sample in results! {
                     let s = sample as? HKQuantitySample;
                     mostRecentSample += (s!).quantity.doubleValueForUnit(HKUnit.jouleUnit())
-                    
+                   // print(mostRecentSample);
                 }
             }
+            print("Print mostRecentSample");
+            print(mostRecentSample);
             
             // Execute the completion closure
             if completion != nil {
