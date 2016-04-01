@@ -10,6 +10,7 @@ import UIKit
 
 class GameViewController: UIViewController {
 
+    @IBOutlet weak var WorkoutNumber: UILabel!
     @IBOutlet weak var wheel: UIImageView!
     @IBOutlet weak var fitCoinLabel: UILabel!
     @IBOutlet weak var progressBar: UIProgressView!
@@ -133,38 +134,8 @@ class GameViewController: UIViewController {
             UIView.animateWithDuration(4, animations: {
                 //self.wheel.animationRepeatCount = 3;
                 self.wheel.transform = transform4;
-                var index = Int(self.count-1);
-                if index == 0 { // arm
-                    self.workoutExplanation.text = self.workouts[index];
-                }
-                else if index == 1 { // arm
-                    self.workoutExplanation.text = self.workouts[index-1];
-                }
-                else if index == 2 {
-                    self.workoutExplanation.text = self.workouts[index-1];
-                }
-                else if index == 3 {
-                    self.workoutExplanation.text = self.workouts[index-1];
-                }
-                else if index == 4{
-                    self.workoutExplanation.text = self.workouts[index-1];
-                    
-                } else if index == 5 {
-                    self.workoutExplanation.text = self.workouts[index-1];
-                    
-                } else if index == 6 {
-                    self.workoutExplanation.text = self.workouts[index-1];
-                    
-                } else if index == 7 {
-                    self.workoutExplanation.text = self.workouts[index-1];
-                    
-                } else if index == 8 {
-                    self.workoutExplanation.text = self.workouts[index-1];
-                } else{
-                    "Do 50 pushups"
-                }
-                
             });
+ 
             
             /*self.wheel.animationDuration = 10000
             self.wheel.animationRepeatCount = 2;
@@ -183,7 +154,14 @@ class GameViewController: UIViewController {
        
     
         dispatch_async(dispatch_get_main_queue(), { () -> Void in
-             let progressBarPercent = Float((self.count)/9)
+            let delay = 4.5 * Double(NSEC_PER_SEC)
+            let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+            dispatch_after(time, dispatch_get_main_queue()) {
+                 self.updateTextBox()
+            }
+            
+            self.WorkoutNumber.text = "\(self.count-1)";
+            let progressBarPercent = Float((self.count)/9)
             self.progressBar.setProgress(progressBarPercent, animated: true)
         });
         
@@ -193,6 +171,43 @@ class GameViewController: UIViewController {
 
     @IBAction func nextButton(sender: AnyObject) {
         
+    }
+    
+    func updateTextBox() {
+        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+            var index = Int(self.count-1);
+            index = index % 9;
+            if index == 0 { // arm
+                self.workoutExplanation.text = self.workouts[index];
+            }
+            else if index == 1 { // arm
+                self.workoutExplanation.text = self.workouts[index-1];
+            }
+            else if index == 2 {
+                self.workoutExplanation.text = self.workouts[index-1];
+            }
+            else if index == 3 {
+                self.workoutExplanation.text = self.workouts[index-1];
+            }
+            else if index == 4{
+                self.workoutExplanation.text = self.workouts[index-1];
+                
+            } else if index == 5 {
+                self.workoutExplanation.text = self.workouts[index-1];
+                
+            } else if index == 6 {
+                self.workoutExplanation.text = self.workouts[index-1];
+                
+            } else if index == 7 {
+                self.workoutExplanation.text = self.workouts[index-1];
+                
+            } else if index == 8 {
+                self.workoutExplanation.text = self.workouts[index-1];
+            } else{
+                self.workoutExplanation.text = "Do 50 pushups";
+            }
+            
+        });
     }
     /*
     // MARK: - Navigation

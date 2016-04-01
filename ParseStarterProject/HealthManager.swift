@@ -239,7 +239,7 @@ class HealthManager {
         }
         
         var now   = NSDate()
-        now = calendar.dateByAddingUnit(.Day, value: -1, toDate: now, options: .WrapComponents)!;
+        //now = calendar.dateByAddingUnit(.Day, value: -1, toDate: now, options: .WrapComponents)!;
         let past = calendar.dateByAddingUnit(.Day, value: -7, toDate: now, options: .WrapComponents);
         
         let mostRecentPredicate = HKQuery.predicateForSamplesWithStartDate(past, endDate:now, options: .None)

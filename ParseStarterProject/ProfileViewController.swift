@@ -378,6 +378,8 @@ class ProfileViewController: UIViewController, FBSDKGameRequestDialogDelegate {
              print("FitCoin Value: \(fitCoinBankValue)");
             
             let fitCoinInt  = Int(self.fitCoinBankValue);
+            var secondTab = self.tabBarController?.viewControllers![2] as! GameViewController
+            secondTab.fitCoins = self.fitCoinBankValue
             print("FitCoin Value: \(fitCoinInt)");
             self.fitCoinValue.text = "\(fitCoinInt)";
             print("gender male");
@@ -385,6 +387,8 @@ class ProfileViewController: UIViewController, FBSDKGameRequestDialogDelegate {
         } else {
             print("gender female");
             self.fitCoinBankValue += (((Double(self.age)*0.074) - (Double(self.weightVal)*0.05741)) + (Double(self.heartRate)*0.4472) - 20.4022)/4.184 * 1;
+            var secondTab = self.tabBarController?.viewControllers![2] as! GameViewController
+            secondTab.fitCoins = self.fitCoinBankValue
             print("Female FitCoinValue:\(self.fitCoinBankValue)");
             
             let fitCoinInt  = Int(self.fitCoinBankValue);
