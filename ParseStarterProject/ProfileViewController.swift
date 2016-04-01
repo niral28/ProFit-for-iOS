@@ -340,6 +340,7 @@ class ProfileViewController: UIViewController, FBSDKGameRequestDialogDelegate {
                     let calFomatter = NSEnergyFormatter();
                     calFomatter.forFoodEnergyUse = true;
                     calLocalizedString = calFomatter.stringFromJoules(self.calories!)
+                    
                 }
             
             

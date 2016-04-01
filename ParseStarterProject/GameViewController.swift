@@ -25,29 +25,99 @@ class GameViewController: UIViewController {
     
     
     var count = 1.0;
+    var currentAngle = 0.0;
     @IBAction func spinButton(sender: AnyObject) {
         print("in rotation")
        
       let image = wheel.image!;
         dispatch_async(dispatch_get_main_queue(), { () -> Void in
-            var rads = 180.0;
-             var randomNum = Double(Int(arc4random_uniform(8) + 1))
-            print("random Num:\(randomNum)")
-            if self.count == 1 {
-                print("in here");
-                rads = (self.count*((randomNum*22.5)+11.25 )*3.14/180);
-            } else {
-                rads = self.count*randomNum*22.5*(3.14/180);
+            var rads = -180.0;
+           
+            //var randomNum = Double(Int(arc4random_uniform(3) + 1))
+         //   print("random Num:\(randomNum)")
+            //rads = (self.count*randomNum*(45)*3.14/180);
+          /*  if self.count == 1 {
+                rads = ((180)*3.14/180);
+                  self.count = rads;
+            }
+            else {
+                rads = ((180)*3.14/180 + self.count)%(2*3.14);
+                print("\(rads)")
+            }*/
+          
+          //  rads = direction * rads;
+            //print("angle \(rads)");
+            
+           // var direction = 1.0;
+           
+            if self.count != 1 {
+                self.currentAngle -= 225;
+                rads = self.currentAngle;
             }
             
+          
+          
             
             var transform = CGAffineTransformMakeRotation(CGFloat(rads));
+           
             UIView.animateWithDuration(1, animations: {
-                
+                //self.wheel.animationRepeatCount = 3;
                 self.wheel.transform = transform;
-             
-               // self.wheel.transform = transform;
             });
+            
+            self.currentAngle -= 180;
+            rads = self.currentAngle;
+            
+            var transform2 = CGAffineTransformMakeRotation(CGFloat(rads));
+            UIView.animateWithDuration(1.25, animations: {
+                //self.wheel.animationRepeatCount = 3;
+                self.wheel.transform = transform2;
+            });
+            
+            self.currentAngle -= 180;
+            rads = self.currentAngle;
+            
+            var transform5 = CGAffineTransformMakeRotation(CGFloat(rads));
+            UIView.animateWithDuration(1.5, animations: {
+                //self.wheel.animationRepeatCount = 3;
+                self.wheel.transform = transform5;
+            });
+            
+            self.currentAngle -= 180;
+            rads = self.currentAngle;
+            
+            var transform6 = CGAffineTransformMakeRotation(CGFloat(rads));
+            UIView.animateWithDuration(2, animations: {
+                //self.wheel.animationRepeatCount = 3;
+                self.wheel.transform = transform6;
+            });
+            
+            self.currentAngle -= 180;
+            rads = self.currentAngle;
+            
+            var transform7 = CGAffineTransformMakeRotation(CGFloat(rads));
+            UIView.animateWithDuration(3, animations: {
+                //self.wheel.animationRepeatCount = 3;
+                self.wheel.transform = transform7;
+            });
+            
+            self.currentAngle -= 180;
+            rads = self.currentAngle;
+            var transform3 = CGAffineTransformMakeRotation(CGFloat(rads));
+            UIView.animateWithDuration(3.5, animations: {
+                //self.wheel.animationRepeatCount = 3;
+                self.wheel.transform = transform3;
+            });
+            
+         
+            self.currentAngle -= 180;
+            rads = self.currentAngle;
+            var transform4 = CGAffineTransformMakeRotation(CGFloat(rads));
+            UIView.animateWithDuration(4, animations: {
+                //self.wheel.animationRepeatCount = 3;
+                self.wheel.transform = transform4;
+            });
+            
             /*self.wheel.animationDuration = 10000
             self.wheel.animationRepeatCount = 2;
             self.wheel.startAnimating()

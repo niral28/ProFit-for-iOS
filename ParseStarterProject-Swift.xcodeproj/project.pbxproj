@@ -9,8 +9,11 @@
 /* Begin PBXBuildFile section */
 		1A0535041CA89C7400A67C3C /* pot-of-gold.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A0535031CA89C7400A67C3C /* pot-of-gold.png */; };
 		1A0535091CA9B7E000A67C3C /* SocialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0535081CA9B7E000A67C3C /* SocialViewController.swift */; };
-		1A05350D1CAA277900A67C3C /* wheel.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A05350C1CAA277900A67C3C /* wheel.png */; };
 		1A0535111CAA291D00A67C3C /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0535101CAA291D00A67C3C /* GameViewController.swift */; };
+		1A0535131CAACF6A00A67C3C /* wheel.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A0535121CAACF6A00A67C3C /* wheel.png */; };
+		1A0535151CAAD15100A67C3C /* wheelRight.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A0535141CAAD15100A67C3C /* wheelRight.png */; };
+		1A1FAB941CADF82B0020C0A9 /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A1FAB931CADF82B0020C0A9 /* arrow.png */; };
+		1A1FAB991CADF9290020C0A9 /* arrow_donw_left.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A1FAB981CADF9290020C0A9 /* arrow_donw_left.png */; };
 		1A3646821CA86831001E1F82 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A36467A1CA86790001E1F82 /* Charts.framework */; };
 		1A3646831CA8683E001E1F82 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A36467A1CA86790001E1F82 /* Charts.framework */; };
 		1A3646841CA8683E001E1F82 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1A36467A1CA86790001E1F82 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -94,8 +97,11 @@
 /* Begin PBXFileReference section */
 		1A0535031CA89C7400A67C3C /* pot-of-gold.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pot-of-gold.png"; sourceTree = "<group>"; };
 		1A0535081CA9B7E000A67C3C /* SocialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialViewController.swift; sourceTree = "<group>"; };
-		1A05350C1CAA277900A67C3C /* wheel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wheel.png; sourceTree = "<group>"; };
 		1A0535101CAA291D00A67C3C /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		1A0535121CAACF6A00A67C3C /* wheel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wheel.png; sourceTree = "<group>"; };
+		1A0535141CAAD15100A67C3C /* wheelRight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wheelRight.png; sourceTree = "<group>"; };
+		1A1FAB931CADF82B0020C0A9 /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = "<group>"; };
+		1A1FAB981CADF9290020C0A9 /* arrow_donw_left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow_donw_left.png; sourceTree = "<group>"; };
 		1A3646721CA86790001E1F82 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = "../../ios-charts-master 2/Charts/Charts.xcodeproj"; sourceTree = "<group>"; };
 		1A5400B51CA7A6240066D6C7 /* starAvm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = starAvm.png; sourceTree = "<group>"; };
 		1A5400B71CA7A62C0066D6C7 /* shieldAvm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shieldAvm.png; sourceTree = "<group>"; };
@@ -201,9 +207,12 @@
 			isa = PBXGroup;
 			children = (
 				1A5400B51CA7A6240066D6C7 /* starAvm.png */,
+				1A1FAB931CADF82B0020C0A9 /* arrow.png */,
 				1A0535081CA9B7E000A67C3C /* SocialViewController.swift */,
-				1A05350C1CAA277900A67C3C /* wheel.png */,
 				1A5400B71CA7A62C0066D6C7 /* shieldAvm.png */,
+				1A0535141CAAD15100A67C3C /* wheelRight.png */,
+				1A1FAB981CADF9290020C0A9 /* arrow_donw_left.png */,
+				1A0535121CAACF6A00A67C3C /* wheel.png */,
 				81BA814A1A49DA1800E65899 /* AppDelegate.swift */,
 				81BA814C1A49DA1800E65899 /* ViewController.swift */,
 				814C3AC61B69877600E307BB /* Main.storyboard */,
@@ -353,9 +362,12 @@
 				1A5400B61CA7A6240066D6C7 /* starAvm.png in Resources */,
 				1A5400B81CA7A62C0066D6C7 /* shieldAvm.png in Resources */,
 				814C3ACA1B69877600E307BB /* Main.storyboard in Resources */,
+				1A0535151CAAD15100A67C3C /* wheelRight.png in Resources */,
 				814C3ACB1B69877600E307BB /* Images.xcassets in Resources */,
 				1A0535041CA89C7400A67C3C /* pot-of-gold.png in Resources */,
-				1A05350D1CAA277900A67C3C /* wheel.png in Resources */,
+				1A1FAB991CADF9290020C0A9 /* arrow_donw_left.png in Resources */,
+				1A0535131CAACF6A00A67C3C /* wheel.png in Resources */,
+				1A1FAB941CADF82B0020C0A9 /* arrow.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
