@@ -32,9 +32,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1A8B48821CB0A6CD00A283F3"
-               BuildableName = "ParseStarterProject-SwiftTests.xctest"
-               BlueprintName = "ParseStarterProject-SwiftTests"
+               BlueprintIdentifier = "1AA9BC041CB0B17600A6DF4F"
+               BuildableName = "ParseStarterProject-SwiftUITests.xctest"
+               BlueprintName = "ParseStarterProject-SwiftUITests"
                ReferencedContainer = "container:ParseStarterProject-Swift.xcodeproj">
             </BuildableReference>
          </TestableReference>

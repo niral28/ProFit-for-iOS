@@ -45,9 +45,37 @@
 		1A6F97261CAE6B3500C3FE60 /* shoesitem.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A6F97201CAE6B3500C3FE60 /* shoesitem.png */; };
 		1A6F97271CAE6B3500C3FE60 /* elasticbanditem.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A6F97211CAE6B3500C3FE60 /* elasticbanditem.png */; };
 		1A8B48861CB0A6CD00A283F3 /* ParseStarterProject_SwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8B48851CB0A6CD00A283F3 /* ParseStarterProject_SwiftTests.swift */; };
+		1A8B488D1CB0ABDB00A283F3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 814C3AC61B69877600E307BB /* Main.storyboard */; };
 		1A8D4D131CA743A6000A950C /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8D4D121CA743A6000A950C /* ImageLoader.swift */; };
 		1A8D4D151CA7474A000A950C /* CircularProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8D4D141CA7474A000A950C /* CircularProgressBar.swift */; };
 		1A8DA8541C95E0310078BE44 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB5F8631C824FD800C3B06A /* ProfileViewController.swift */; };
+		1AA9BBEC1CB0AD4D00A6DF4F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A6102641CA86379005D25B0 /* UIKit.framework */; };
+		1AA9BBED1CB0AD4E00A6DF4F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A6102641CA86379005D25B0 /* UIKit.framework */; };
+		1AA9BBEE1CB0AD5100A6DF4F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A6102621CA86371005D25B0 /* QuartzCore.framework */; };
+		1AA9BBEF1CB0AD5100A6DF4F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A6102621CA86371005D25B0 /* QuartzCore.framework */; };
+		1AA9BBF01CB0AD5400A6DF4F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A8D4D0E1CA7400A000A950C /* CoreData.framework */; };
+		1AA9BBF11CB0AD5400A6DF4F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A8D4D0E1CA7400A000A950C /* CoreData.framework */; };
+		1AA9BBF21CB0AD5700A6DF4F /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A6D7E961C9A0D9600342CAE /* HealthKit.framework */; };
+		1AA9BBF31CB0AD5900A6DF4F /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AB5F6B81C82405C00C3B06A /* Bolts.framework */; };
+		1AA9BBF41CB0AD5C00A6DF4F /* ParseFacebookUtilsV4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AB5F6B11C82388A00C3B06A /* ParseFacebookUtilsV4.framework */; };
+		1AA9BBF51CB0AD5F00A6DF4F /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AB5F6B31C82388A00C3B06A /* ParseUI.framework */; };
+		1AA9BBF61CB0AD6100A6DF4F /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AB5F6C71C82417E00C3B06A /* FBSDKCoreKit.framework */; };
+		1AA9BBF71CB0AD6400A6DF4F /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AB5F6C81C82417E00C3B06A /* FBSDKLoginKit.framework */; };
+		1AA9BBF81CB0AD6600A6DF4F /* FBSDKMessengerShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AB5F6C91C82417E00C3B06A /* FBSDKMessengerShareKit.framework */; };
+		1AA9BBF91CB0AD6900A6DF4F /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AB5F6CA1C82417E00C3B06A /* FBSDKShareKit.framework */; };
+		1AA9BBFA1CB0AD6B00A6DF4F /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81BA816C1A49DB6800E65899 /* Parse.framework */; };
+		1AA9BBFB1CB0AD7000A6DF4F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81BA817A1A49E0E500E65899 /* SystemConfiguration.framework */; };
+		1AA9BBFC1CB0AD7200A6DF4F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81BA81781A49E0DB00E65899 /* AudioToolbox.framework */; };
+		1AA9BBFD1CB0AD7600A6DF4F /* libstdc++.6.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 81BA817E1A49E0F000E65899 /* libstdc++.6.dylib */; };
+		1AA9BBFE1CB0AD7800A6DF4F /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 81BA81761A49E0D500E65899 /* libsqlite3.dylib */; };
+		1AA9BC001CB0B01900A6DF4F /* ProfilePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA9BBFF1CB0B01900A6DF4F /* ProfilePage.swift */; };
+		1AA9BC081CB0B17600A6DF4F /* ParseStarterProject_SwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA9BC071CB0B17600A6DF4F /* ParseStarterProject_SwiftUITests.swift */; };
+		1AA9BC101CB0B1E600A6DF4F /* ProfileViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA9BC0F1CB0B1E600A6DF4F /* ProfileViewTests.swift */; };
+		1AA9BC121CB0B24100A6DF4F /* LoginViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA9BC111CB0B24100A6DF4F /* LoginViewTests.swift */; };
+		1AA9BC141CB0B29600A6DF4F /* SocialViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA9BC131CB0B29600A6DF4F /* SocialViewTests.swift */; };
+		1AA9BC161CB0B2D700A6DF4F /* GameViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA9BC151CB0B2D700A6DF4F /* GameViewTests.swift */; };
+		1AA9BC181CB0B33700A6DF4F /* ArenaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA9BC171CB0B33700A6DF4F /* ArenaTests.swift */; };
+		1AA9BC1A1CB0B35E00A6DF4F /* StoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA9BC191CB0B35E00A6DF4F /* StoreTests.swift */; };
 		1AB5F6B51C82388A00C3B06A /* ParseFacebookUtilsV4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AB5F6B11C82388A00C3B06A /* ParseFacebookUtilsV4.framework */; };
 		1AB5F6B71C82388A00C3B06A /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AB5F6B31C82388A00C3B06A /* ParseUI.framework */; };
 		1AB5F6B91C82405C00C3B06A /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AB5F6B81C82405C00C3B06A /* Bolts.framework */; };
@@ -130,6 +158,13 @@
 			remoteGlobalIDString = 81BA81441A49DA1800E65899;
 			remoteInfo = "ParseStarterProject-Swift";
 		};
+		1AA9BC0A1CB0B17600A6DF4F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 81BA813D1A49DA1800E65899 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 81BA81441A49DA1800E65899;
+			remoteInfo = "ParseStarterProject-Swift";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -193,6 +228,16 @@
 		1A8D4D121CA743A6000A950C /* ImageLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		1A8D4D141CA7474A000A950C /* CircularProgressBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularProgressBar.swift; sourceTree = "<group>"; };
 		1A8D7B9D1C822403002C5FFA /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
+		1AA9BBFF1CB0B01900A6DF4F /* ProfilePage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfilePage.swift; sourceTree = "<group>"; };
+		1AA9BC051CB0B17600A6DF4F /* ParseStarterProject-SwiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ParseStarterProject-SwiftUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1AA9BC071CB0B17600A6DF4F /* ParseStarterProject_SwiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseStarterProject_SwiftUITests.swift; sourceTree = "<group>"; };
+		1AA9BC091CB0B17600A6DF4F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1AA9BC0F1CB0B1E600A6DF4F /* ProfileViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewTests.swift; sourceTree = "<group>"; };
+		1AA9BC111CB0B24100A6DF4F /* LoginViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewTests.swift; sourceTree = "<group>"; };
+		1AA9BC131CB0B29600A6DF4F /* SocialViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialViewTests.swift; sourceTree = "<group>"; };
+		1AA9BC151CB0B2D700A6DF4F /* GameViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewTests.swift; sourceTree = "<group>"; };
+		1AA9BC171CB0B33700A6DF4F /* ArenaTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArenaTests.swift; sourceTree = "<group>"; };
+		1AA9BC191CB0B35E00A6DF4F /* StoreTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreTests.swift; sourceTree = "<group>"; };
 		1AB5F6B11C82388A00C3B06A /* ParseFacebookUtilsV4.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParseFacebookUtilsV4.framework; path = ../../../Documents/ParseSDK/ParseFacebookUtilsV4.framework; sourceTree = "<group>"; };
 		1AB5F6B31C82388A00C3B06A /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParseUI.framework; path = ../../../Documents/ParseSDK/ParseUI.framework; sourceTree = "<group>"; };
 		1AB5F6B81C82405C00C3B06A /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = ../../../Documents/ParseSDK/Bolts.framework; sourceTree = "<group>"; };
@@ -219,6 +264,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1AA9BBF31CB0AD5900A6DF4F /* Bolts.framework in Frameworks */,
+				1AA9BBEF1CB0AD5100A6DF4F /* QuartzCore.framework in Frameworks */,
+				1AA9BBF81CB0AD6600A6DF4F /* FBSDKMessengerShareKit.framework in Frameworks */,
+				1AA9BBFD1CB0AD7600A6DF4F /* libstdc++.6.dylib in Frameworks */,
+				1AA9BBF71CB0AD6400A6DF4F /* FBSDKLoginKit.framework in Frameworks */,
+				1AA9BBF51CB0AD5F00A6DF4F /* ParseUI.framework in Frameworks */,
+				1AA9BBFB1CB0AD7000A6DF4F /* SystemConfiguration.framework in Frameworks */,
+				1AA9BBF41CB0AD5C00A6DF4F /* ParseFacebookUtilsV4.framework in Frameworks */,
+				1AA9BBF91CB0AD6900A6DF4F /* FBSDKShareKit.framework in Frameworks */,
+				1AA9BBF21CB0AD5700A6DF4F /* HealthKit.framework in Frameworks */,
+				1AA9BBF61CB0AD6100A6DF4F /* FBSDKCoreKit.framework in Frameworks */,
+				1AA9BBF11CB0AD5400A6DF4F /* CoreData.framework in Frameworks */,
+				1AA9BBFC1CB0AD7200A6DF4F /* AudioToolbox.framework in Frameworks */,
+				1AA9BBFA1CB0AD6B00A6DF4F /* Parse.framework in Frameworks */,
+				1AA9BBFE1CB0AD7800A6DF4F /* libsqlite3.dylib in Frameworks */,
+				1AA9BBED1CB0AD4E00A6DF4F /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1AA9BC021CB0B17600A6DF4F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,6 +295,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A3646821CA86831001E1F82 /* Charts.framework in Frameworks */,
+				1AA9BBF01CB0AD5400A6DF4F /* CoreData.framework in Frameworks */,
+				1AA9BBEC1CB0AD4D00A6DF4F /* UIKit.framework in Frameworks */,
+				1AA9BBEE1CB0AD5100A6DF4F /* QuartzCore.framework in Frameworks */,
 				1AB5F6B91C82405C00C3B06A /* Bolts.framework in Frameworks */,
 				1AB5F6B51C82388A00C3B06A /* ParseFacebookUtilsV4.framework in Frameworks */,
 				1AB5F6B71C82388A00C3B06A /* ParseUI.framework in Frameworks */,
@@ -292,10 +363,26 @@
 		1A8B48841CB0A6CD00A283F3 /* ParseStarterProject-SwiftTests */ = {
 			isa = PBXGroup;
 			children = (
+				1AA9BBFF1CB0B01900A6DF4F /* ProfilePage.swift */,
 				1A8B48851CB0A6CD00A283F3 /* ParseStarterProject_SwiftTests.swift */,
 				1A8B48871CB0A6CD00A283F3 /* Info.plist */,
 			);
 			path = "ParseStarterProject-SwiftTests";
+			sourceTree = "<group>";
+		};
+		1AA9BC061CB0B17600A6DF4F /* ParseStarterProject-SwiftUITests */ = {
+			isa = PBXGroup;
+			children = (
+				1AA9BC191CB0B35E00A6DF4F /* StoreTests.swift */,
+				1AA9BC171CB0B33700A6DF4F /* ArenaTests.swift */,
+				1AA9BC151CB0B2D700A6DF4F /* GameViewTests.swift */,
+				1AA9BC131CB0B29600A6DF4F /* SocialViewTests.swift */,
+				1AA9BC111CB0B24100A6DF4F /* LoginViewTests.swift */,
+				1AA9BC0F1CB0B1E600A6DF4F /* ProfileViewTests.swift */,
+				1AA9BC071CB0B17600A6DF4F /* ParseStarterProject_SwiftUITests.swift */,
+				1AA9BC091CB0B17600A6DF4F /* Info.plist */,
+			);
+			path = "ParseStarterProject-SwiftUITests";
 			sourceTree = "<group>";
 		};
 		814C3AC51B69877600E307BB /* Resources */ = {
@@ -318,6 +405,7 @@
 				81BA81471A49DA1800E65899 /* ParseStarterProject */,
 				814C3AC51B69877600E307BB /* Resources */,
 				1A8B48841CB0A6CD00A283F3 /* ParseStarterProject-SwiftTests */,
+				1AA9BC061CB0B17600A6DF4F /* ParseStarterProject-SwiftUITests */,
 				81BA816A1A49DB5600E65899 /* Frameworks */,
 				81BA81461A49DA1800E65899 /* Products */,
 			);
@@ -328,6 +416,7 @@
 			children = (
 				81BA81451A49DA1800E65899 /* ParseStarterProject-Swift.app */,
 				1A8B48831CB0A6CD00A283F3 /* ParseStarterProject-SwiftTests.xctest */,
+				1AA9BC051CB0B17600A6DF4F /* ParseStarterProject-SwiftUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -416,6 +505,24 @@
 			productReference = 1A8B48831CB0A6CD00A283F3 /* ParseStarterProject-SwiftTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		1AA9BC041CB0B17600A6DF4F /* ParseStarterProject-SwiftUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1AA9BC0C1CB0B17600A6DF4F /* Build configuration list for PBXNativeTarget "ParseStarterProject-SwiftUITests" */;
+			buildPhases = (
+				1AA9BC011CB0B17600A6DF4F /* Sources */,
+				1AA9BC021CB0B17600A6DF4F /* Frameworks */,
+				1AA9BC031CB0B17600A6DF4F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1AA9BC0B1CB0B17600A6DF4F /* PBXTargetDependency */,
+			);
+			name = "ParseStarterProject-SwiftUITests";
+			productName = "ParseStarterProject-SwiftUITests";
+			productReference = 1AA9BC051CB0B17600A6DF4F /* ParseStarterProject-SwiftUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		81BA81441A49DA1800E65899 /* ParseStarterProject-Swift */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 81BA81641A49DA1800E65899 /* Build configuration list for PBXNativeTarget "ParseStarterProject-Swift" */;
@@ -446,6 +553,10 @@
 				ORGANIZATIONNAME = Parse;
 				TargetAttributes = {
 					1A8B48821CB0A6CD00A283F3 = {
+						CreatedOnToolsVersion = 7.3;
+						TestTargetID = 81BA81441A49DA1800E65899;
+					};
+					1AA9BC041CB0B17600A6DF4F = {
 						CreatedOnToolsVersion = 7.3;
 						TestTargetID = 81BA81441A49DA1800E65899;
 					};
@@ -485,6 +596,7 @@
 			targets = (
 				81BA81441A49DA1800E65899 /* ParseStarterProject-Swift */,
 				1A8B48821CB0A6CD00A283F3 /* ParseStarterProject-SwiftTests */,
+				1AA9BC041CB0B17600A6DF4F /* ParseStarterProject-SwiftUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -546,6 +658,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A8B488D1CB0ABDB00A283F3 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1AA9BC031CB0B17600A6DF4F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -593,7 +713,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1AA9BC001CB0B01900A6DF4F /* ProfilePage.swift in Sources */,
 				1A8B48861CB0A6CD00A283F3 /* ParseStarterProject_SwiftTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1AA9BC011CB0B17600A6DF4F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1AA9BC161CB0B2D700A6DF4F /* GameViewTests.swift in Sources */,
+				1AA9BC181CB0B33700A6DF4F /* ArenaTests.swift in Sources */,
+				1AA9BC101CB0B1E600A6DF4F /* ProfileViewTests.swift in Sources */,
+				1AA9BC1A1CB0B35E00A6DF4F /* StoreTests.swift in Sources */,
+				1AA9BC141CB0B29600A6DF4F /* SocialViewTests.swift in Sources */,
+				1AA9BC121CB0B24100A6DF4F /* LoginViewTests.swift in Sources */,
+				1AA9BC081CB0B17600A6DF4F /* ParseStarterProject_SwiftUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -627,6 +762,11 @@
 			target = 81BA81441A49DA1800E65899 /* ParseStarterProject-Swift */;
 			targetProxy = 1A8B48881CB0A6CD00A283F3 /* PBXContainerItemProxy */;
 		};
+		1AA9BC0B1CB0B17600A6DF4F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 81BA81441A49DA1800E65899 /* ParseStarterProject-Swift */;
+			targetProxy = 1AA9BC0A1CB0B17600A6DF4F /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
@@ -649,6 +789,10 @@
 				CLANG_ANALYZER_NONNULL = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "ParseStarterProject-SwiftTests/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
@@ -666,6 +810,10 @@
 				CLANG_ANALYZER_NONNULL = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "ParseStarterProject-SwiftTests/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
@@ -673,6 +821,38 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "niralshah.ParseStarterProject-SwiftTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ParseStarterProject-Swift.app/ParseStarterProject-Swift";
+			};
+			name = Release;
+		};
+		1AA9BC0D1CB0B17600A6DF4F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_TESTABILITY = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "ParseStarterProject-SwiftUITests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "niralshah.ParseStarterProject-SwiftUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "ParseStarterProject-Swift";
+			};
+			name = Debug;
+		};
+		1AA9BC0E1CB0B17600A6DF4F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "ParseStarterProject-SwiftUITests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "niralshah.ParseStarterProject-SwiftUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "ParseStarterProject-Swift";
 			};
 			name = Release;
 		};
@@ -765,8 +945,9 @@
 				CODE_SIGN_ENTITLEMENTS = "ParseStarterProject-Swift.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEFINES_MODULE = YES;
+				DEFINES_MODULE = NO;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -794,8 +975,9 @@
 				CODE_SIGN_ENTITLEMENTS = "ParseStarterProject-Swift.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEFINES_MODULE = YES;
+				DEFINES_MODULE = NO;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -823,6 +1005,16 @@
 				1A8B488C1CB0A6CD00A283F3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1AA9BC0C1CB0B17600A6DF4F /* Build configuration list for PBXNativeTarget "ParseStarterProject-SwiftUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1AA9BC0D1CB0B17600A6DF4F /* Debug */,
+				1AA9BC0E1CB0B17600A6DF4F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		81BA81401A49DA1800E65899 /* Build configuration list for PBXProject "ParseStarterProject-Swift" */ = {
 			isa = XCConfigurationList;

@@ -15,7 +15,8 @@ import FBSDKCoreKit
 import HealthKit
 import Charts
 
-class ProfileViewController: UIViewController, FBSDKGameRequestDialogDelegate {
+
+public class ProfileViewController: UIViewController, FBSDKGameRequestDialogDelegate {
     
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var friendCount: UILabel!
@@ -130,7 +131,7 @@ class ProfileViewController: UIViewController, FBSDKGameRequestDialogDelegate {
     }
     
     
-    override func viewDidLoad() { // main method
+    override public func viewDidLoad() { // main method
         super.viewDidLoad()
         dailyCalorieTracking.angle = 0;
         calorieGoal = 1000;
@@ -232,7 +233,7 @@ class ProfileViewController: UIViewController, FBSDKGameRequestDialogDelegate {
         } */
         
     }
-    override func viewWillAppear(animated: Bool) {
+    override public func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated);
         loadData(currentUser);
       updateHealthInfo()
@@ -241,7 +242,7 @@ class ProfileViewController: UIViewController, FBSDKGameRequestDialogDelegate {
     }
     
 
-    override func didReceiveMemoryWarning() {
+    override public func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
@@ -249,21 +250,21 @@ class ProfileViewController: UIViewController, FBSDKGameRequestDialogDelegate {
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override public func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
        // var secondTab = self.tabBarController?.viewControllers![1] as! GameViewController
         //secondTab.fitCoins = self.fitCoinBankValue
     }
     
-    func gameRequestDialog(gameRequestDialog: FBSDKGameRequestDialog!, didCompleteWithResults results: [NSObject : AnyObject]!) {
+    public func gameRequestDialog(gameRequestDialog: FBSDKGameRequestDialog!, didCompleteWithResults results: [NSObject : AnyObject]!) {
         print("here!");
         print(results);
         return;
     }
-    func gameRequestDialog(gameRequestDialog: FBSDKGameRequestDialog!, didFailWithError error: NSError!) {
+    public func gameRequestDialog(gameRequestDialog: FBSDKGameRequestDialog!, didFailWithError error: NSError!) {
         print("failed");
         return;
     }
-    func gameRequestDialogDidCancel(gameRequestDialog: FBSDKGameRequestDialog!) {
+    public func gameRequestDialogDidCancel(gameRequestDialog: FBSDKGameRequestDialog!) {
         print("hello");
         return;
     }

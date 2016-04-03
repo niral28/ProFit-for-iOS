@@ -186,7 +186,7 @@
         <!--Profile-->
         <scene sceneID="O1P-vf-sWy">
             <objects>
-                <viewController title="Profile" id="Xhu-y7-QXT" customClass="ProfileViewController" customModule="ParseStarterProject_Swift" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Profile" id="Xhu-y7-QXT" customClass="ProfileViewController" customModule="ParseStarterProject_Swift" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fHR-xq-vSe"/>
                         <viewControllerLayoutGuide type="bottom" id="REW-np-Tf3"/>
@@ -3892,8 +3892,8 @@
         <image name="workoutWheel.png" width="271" height="271"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="kTt-MI-RhU"/>
+        <segue reference="hVg-N0-A23"/>
         <segue reference="tfu-xS-kw3"/>
-        <segue reference="Yn8-jV-1ck"/>
+        <segue reference="kTt-MI-RhU"/>
     </inferredMetricsTieBreakers>
 </document>
