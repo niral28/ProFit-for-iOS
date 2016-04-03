@@ -28,6 +28,16 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "1A8B48821CB0A6CD00A283F3"
+               BuildableName = "ParseStarterProject-SwiftTests.xctest"
+               BlueprintName = "ParseStarterProject-SwiftTests"
+               ReferencedContainer = "container:ParseStarterProject-Swift.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
