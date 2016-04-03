@@ -21,13 +21,13 @@ class ViewController: UIViewController {
     var authorizedHealth = false;
     var loggedIn = false;
     
-    @IBAction func didTapFBLogin(sender: AnyObject) {
+    @IBAction func didTapFBLogin(sender: AnyObject) { // method gets triggered when user clicks log into Facebook
         
         var permissions = [ "public_profile", "email", "user_friends" ]
         var currentUser = PFUser.currentUser()!.username;
         
         PFFacebookUtils.logInInBackgroundWithReadPermissions(permissions,  block: {  (user: PFUser?, error: NSError?) -> Void in
-            if let user = user {
+            if let user = user { // save data to the cloud
               
                 if user.isNew {
                     print("User signed up and logged in through Facebook!")

@@ -45,7 +45,7 @@ class GameViewController: UIViewController {
     var count = 1.0;
     var currentAngle = 0.0;
     var fitCoins = Double();
-    @IBAction func spinButton(sender: AnyObject) {
+    @IBAction func spinButton(sender: AnyObject) { // this method transforms image and does spinning animation
         print("in rotation")
        
       let image = wheel.image!;

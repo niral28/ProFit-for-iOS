@@ -7,7 +7,7 @@
 //
 
 import Foundation
-class ImageLoader {
+class ImageLoader { // This class is used to implement image caching
     
     var cache = NSCache()
     

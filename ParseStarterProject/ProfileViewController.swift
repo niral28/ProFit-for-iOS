@@ -644,7 +644,7 @@ public class ProfileViewController: UIViewController, FBSDKGameRequestDialogDele
         self.index++;
     }
     
-    func plotPoints (){
+    func plotPoints (){ // plots data Points
         
         dispatch_async(dispatch_get_main_queue(), { () -> Void in
             let lineChartDataSet = LineChartDataSet(yVals: self.chartVals, label: "Calories")

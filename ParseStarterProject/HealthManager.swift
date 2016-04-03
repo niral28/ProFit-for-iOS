@@ -231,7 +231,7 @@ class HealthManager {
     
     
     func readPastWeekEnergy(sampleType:HKSampleType , completion: ((Double, NSError!) -> Void)!)
-    {
+    { // read past week's active energy
         
         // 1. Build the Predicate
         guard let calendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian) else {
@@ -281,7 +281,7 @@ class HealthManager {
     }
   
     func readPastAllEnergy(sampleType:HKSampleType , completion: (([Double], NSError!) -> Void)!)
-    {
+    { // read Energy from past week
         
         // 1. Build the Predicate
         guard let calendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian) else {

@@ -15,7 +15,7 @@ public enum KDCircularProgressGlowMode {
 }
 
 @IBDesignable
-public class KDCircularProgress: UIView {
+public class KDCircularProgress: UIView { // This class defines the parameters for the circular progress bar
     
     private struct ConversionFunctions {
         static func DegreesToRadians (value:CGFloat) -> CGFloat {
