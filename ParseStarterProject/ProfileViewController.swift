@@ -50,7 +50,7 @@ class ProfileViewController: UIViewController, FBSDKGameRequestDialogDelegate {
     var weightVal = 165.0;
     var age = 20;
     var heartRate = 140;
-    @IBAction func updateWeeklyCalorieGoal(sender: AnyObject) {
+    @IBAction func updateWeeklyCalorieGoal(sender: AnyObject) { // updates Weekly Calorie Goal, when user adjusts it.
         if currentWeeklyStepperValue < weeklyStepperValue.value {
             //print("plus");
             //print("Stepper Value:");
@@ -76,7 +76,7 @@ class ProfileViewController: UIViewController, FBSDKGameRequestDialogDelegate {
         }
         
     }
-    @IBAction func updateDailyCalorieGoal(sender: AnyObject) {
+    @IBAction func updateDailyCalorieGoal(sender: AnyObject) { // updates Daily Calorie goal when user adjusts it
         
         if currentStepperValue < stepperValue.value {
             print("plus");
@@ -110,7 +110,7 @@ class ProfileViewController: UIViewController, FBSDKGameRequestDialogDelegate {
  
     
     // Method to Add Friends/ Invite Them on FB:
-    @IBAction func addFriends(sender: AnyObject) {
+    @IBAction func addFriends(sender: AnyObject) { // add Friends or send app invites to them using the FB Api
         let fbID = 978384415587929;
         print("here adding friends!");
          var gameRequestContent = FBSDKGameRequestContent();
@@ -130,7 +130,7 @@ class ProfileViewController: UIViewController, FBSDKGameRequestDialogDelegate {
     }
     
     
-    override func viewDidLoad() {
+    override func viewDidLoad() { // main method
         super.viewDidLoad()
         dailyCalorieTracking.angle = 0;
         calorieGoal = 1000;
@@ -153,7 +153,7 @@ class ProfileViewController: UIViewController, FBSDKGameRequestDialogDelegate {
         // Do any additional setup after loading the view.
     }
     
-    func updateCircularProgressBar(){
+    func updateCircularProgressBar(){ // draw's custom circular progress bar
         print("in circular progress bar");
         
         var angle = Int(self.currentCalories!/self.calorieGoal*360);
@@ -162,7 +162,7 @@ class ProfileViewController: UIViewController, FBSDKGameRequestDialogDelegate {
         self.dailyCalorieTracking.animateFromAngle(0, toAngle: angle, duration: 0.5, completion: nil)
         
     }
-    func updateWeeklyCircularProgressBar(){
+    func updateWeeklyCircularProgressBar(){ // draw's custom circular bar for weekly progress bar
         print("in  weekly circular progress bar");
         
         var angle = Int(self.weeklyCurrentCalories!/self.weeklyGoal*360);
@@ -174,7 +174,7 @@ class ProfileViewController: UIViewController, FBSDKGameRequestDialogDelegate {
         
     }
     
-    func loadData(uInfo:PFUser){
+    func loadData(uInfo:PFUser){ // load key health data
         
         if((FBSDKAccessToken.currentAccessToken()) != nil){
             FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "id, name, first_name, last_name, friends, picture.type(normal), email"]).startWithCompletionHandler({ (connection, result, error) -> Void in
@@ -372,7 +372,7 @@ class ProfileViewController: UIViewController, FBSDKGameRequestDialogDelegate {
         
     }
     
-    func updateFitCoins() {
+    func updateFitCoins() { // calculate and update FitCoin Values
         if self.gender == 1 {
             self.fitCoinBankValue += (((Double(self.age) * 0.2017) - (Double(self.weightVal)*0.09036)) + (Double(self.heartRate)*0.6309) - 55.0969)/4.184 * 10;
              print("FitCoin Value: \(fitCoinBankValue)");
@@ -448,7 +448,7 @@ class ProfileViewController: UIViewController, FBSDKGameRequestDialogDelegate {
         
     }
     
-    func drawGraph(){
+    func drawGraph(){ // draw the graph
         self.getWeeklyData();
         self.plotPoints();
     }
