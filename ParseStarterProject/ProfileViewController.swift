@@ -38,7 +38,7 @@ public class ProfileViewController: UIViewController, FBSDKGameRequestDialogDele
     @IBOutlet weak var linechartView: LineChartView!
     var currentUser = PFUser.currentUser()!;
     var dict = NSDictionary();
-   // var loaded = false;
+    var loaded = false;
     let healthManager:HealthManager = HealthManager();
     let kUnknownString   = "Unknown"
     var healthStore :HKHealthStore = HKHealthStore();
@@ -51,7 +51,12 @@ public class ProfileViewController: UIViewController, FBSDKGameRequestDialogDele
     var weightVal = 165.0;
     var age = 20;
     var heartRate = 140;
+    let gameScore = PFObject(className:"FitCoinScore")
+    
+    
     @IBAction func updateWeeklyCalorieGoal(sender: AnyObject) { // updates Weekly Calorie Goal, when user adjusts it.
+       
+        
         if currentWeeklyStepperValue < weeklyStepperValue.value {
             //print("plus");
             //print("Stepper Value:");
@@ -136,13 +141,13 @@ public class ProfileViewController: UIViewController, FBSDKGameRequestDialogDele
         dailyCalorieTracking.angle = 0;
         calorieGoal = 1000;
         weeklyGoal = 2000;
-        updateFitCoins();
+        //updateFitCoins();
         drawGraph();
-        var secondTab = self.tabBarController?.viewControllers![2] as! GameViewController
-        secondTab.fitCoins = self.fitCoinBankValue
+      //  var secondTab = self.tabBarController?.viewControllers![2] as! GameViewController
+        //secondTab.fitCoins = self.fitCoinBankValue
         //getWeeklyData()
         //plotPoints();
-        
+        //self.loaded = true;
       
        //drawWeeklyGraph();
         
@@ -182,9 +187,10 @@ public class ProfileViewController: UIViewController, FBSDKGameRequestDialogDele
                 if (error == nil){
                     self.dict = result as! NSDictionary
                     print(self.dict);
+                    
                     self.userNameLabel.text = self.dict.objectForKey("name") as? String;
                     var friend = self.dict.objectForKey("friends")?.objectForKey("summary")?.objectForKey("total_count")
-                    //print(friend!)
+                    print(friend!)
                    let friendCount = friend as? NSNumber
                     let friendCountString = "\(friendCount!)";
                     self.friendCount.text = friendCountString;
@@ -365,7 +371,11 @@ public class ProfileViewController: UIViewController, FBSDKGameRequestDialogDele
                
                 self.caloriesLabel.text = calLocalizedString;
                 //self.updateBMI()
-                 self.updateCircularProgressBar()
+                self.updateCircularProgressBar();
+                if(self.loaded == false){
+                    self.updateFitCoins();
+                }
+                self.loaded = true;
             });
                 
             }
@@ -375,21 +385,61 @@ public class ProfileViewController: UIViewController, FBSDKGameRequestDialogDele
     
     func updateFitCoins() { // calculate and update FitCoin Values
         if self.gender == 1 {
-            self.fitCoinBankValue += (((Double(self.age) * 0.2017) - (Double(self.weightVal)*0.09036)) + (Double(self.heartRate)*0.6309) - 55.0969)/4.184 * 10;
-             print("FitCoin Value: \(fitCoinBankValue)");
+           /* self.fitCoinBankValue += (((Double(self.age) * 0.2017) - (Double(self.weightVal)*0.09036)) + (Double(self.heartRate)*0.6309) - 55.0969)/4.184 * 10;
+             print("FitCoin Value: \(fitCoinBankValue)"); */
             
-            let fitCoinInt  = Int(self.fitCoinBankValue);
-            var secondTab = self.tabBarController?.viewControllers![2] as! GameViewController
-            secondTab.fitCoins = self.fitCoinBankValue
-            print("FitCoin Value: \(fitCoinInt)");
-            self.fitCoinValue.text = "\(fitCoinInt)";
-            print("gender male");
+            
+            let query = PFQuery(className: "FitCoinScore")
+            query.whereKey("playerName", equalTo: currentUser.username!)
+            query.fromLocalDatastore()
+            query.getFirstObjectInBackgroundWithBlock({ (object,error) -> Void in
+                if error == nil {
+                    if let oldCoinValue = object{
+                        print("Retrieving");
+                        print(oldCoinValue["score"]);
+                        self.fitCoinBankValue += Double(self.currentCalories!) - Double(self.age-1)*1.975 + Double(self.weightVal-1)*1.06;
+                        self.fitCoinBankValue += oldCoinValue["score"] as! Double;
+                        print("FitCoin Value: \(self.fitCoinBankValue)");
+                        
+                        self.gameScore["score"] = self.fitCoinBankValue;
+                        self.gameScore["playerName"] = self.currentUser.username;
+                        self.gameScore["timeStamp"] = NSDate();
+                        self.gameScore.pinInBackground();
+                        
+                        let fitCoinInt  = Int(self.fitCoinBankValue);
+                        //var secondTab = self.tabBarController?.viewControllers![2] as! GameViewController
+                       // secondTab.fitCoins = self.fitCoinBankValue
+                        print("FitCoin Value: \(fitCoinInt)");
+                        self.fitCoinValue.text = "\(fitCoinInt)";
+                        print("gender male");
+                    }
+                } else{
+                    print("Un-initialized");
+                    self.fitCoinBankValue += Double(self.currentCalories!) - Double(self.age-1)*1.975 + Double(self.weightVal-1)*1.06;
+                    print("FitCoin Value: \(self.fitCoinBankValue)");
+                    self.gameScore["score"] = self.fitCoinBankValue;
+                    self.gameScore["playerName"] = self.currentUser.username;
+                    self.gameScore["timeStamp"] = NSDate();
+                    self.gameScore.pinInBackground()
+                    let fitCoinInt  = Int(self.fitCoinBankValue);
+                    //var secondTab = self.tabBarController?.viewControllers![2] as! GameViewController
+                   // secondTab.fitCoins = self.fitCoinBankValue
+                    print("FitCoin Value: \(fitCoinInt)");
+                    self.fitCoinValue.text = "\(fitCoinInt)";
+                    print("gender male");
+                }
+            })
+            //self.fitCoinBankValue += oldCoinValue;
+    
+         
             
         } else {
             print("gender female");
-            self.fitCoinBankValue += (((Double(self.age)*0.074) - (Double(self.weightVal)*0.05741)) + (Double(self.heartRate)*0.4472) - 20.4022)/4.184 * 10;
-            var secondTab = self.tabBarController?.viewControllers![2] as! GameViewController
-            secondTab.fitCoins = self.fitCoinBankValue
+            /*self.fitCoinBankValue += (((Double(self.age)*0.074) - (Double(self.weightVal)*0.05741)) + (Double(self.heartRate)*0.4472) - 20.4022)/4.184 * 10;*/
+            self.fitCoinBankValue += (Double(self.currentCalories!) - Double(self.age-1)*1.975 + Double(self.weightVal-1)*1.06)/1.27;
+            print("FitCoin Value: \(fitCoinBankValue)");
+           // var secondTab = self.tabBarController?.viewControllers![2] as! GameViewController
+            //secondTab.fitCoins = self.fitCoinBankValue
             print("Female FitCoinValue:\(self.fitCoinBankValue)");
             
             let fitCoinInt  = Int(self.fitCoinBankValue);
