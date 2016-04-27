@@ -14,6 +14,28 @@
 		1A0EB82E1CD03BF000D1BBBC /* ProfileTab.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A0EB82D1CD03BF000D1BBBC /* ProfileTab.png */; };
 		1A0EB8301CD03C4A00D1BBBC /* SocialTab.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A0EB82F1CD03C4A00D1BBBC /* SocialTab.png */; };
 		1A0EB8321CD03CB700D1BBBC /* GameTab.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A0EB8311CD03CB700D1BBBC /* GameTab.png */; };
+		1A0EB8381CD0407A00D1BBBC /* StandingChop.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A0EB8341CD0407A00D1BBBC /* StandingChop.png */; };
+		1A0EB8391CD0407A00D1BBBC /* WalkingSingleLeg.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A0EB8351CD0407A00D1BBBC /* WalkingSingleLeg.png */; };
+		1A0EB83A1CD0407A00D1BBBC /* JackInAndOut.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A0EB8361CD0407A00D1BBBC /* JackInAndOut.png */; };
+		1A0EB83B1CD0407A00D1BBBC /* AlternatingLegDrops.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A0EB8371CD0407A00D1BBBC /* AlternatingLegDrops.png */; };
+		1A0EB83D1CD0408400D1BBBC /* PlankSquatHops.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A0EB83C1CD0408400D1BBBC /* PlankSquatHops.png */; };
+		1A0EB84D1CD0432100D1BBBC /* Tricep.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A0EB83E1CD0432100D1BBBC /* Tricep.png */; };
+		1A0EB84E1CD0432100D1BBBC /* TravelingClimber.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A0EB83F1CD0432100D1BBBC /* TravelingClimber.png */; };
+		1A0EB84F1CD0432100D1BBBC /* SquatJump.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A0EB8401CD0432100D1BBBC /* SquatJump.png */; };
+		1A0EB8501CD0432100D1BBBC /* SidePushUp.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A0EB8411CD0432100D1BBBC /* SidePushUp.png */; };
+		1A0EB8511CD0432100D1BBBC /* PushUps.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A0EB8421CD0432100D1BBBC /* PushUps.png */; };
+		1A0EB8521CD0432100D1BBBC /* JumpingPushUps.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A0EB8431CD0432100D1BBBC /* JumpingPushUps.png */; };
+		1A0EB8531CD0432100D1BBBC /* InvertedRow.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A0EB8441CD0432100D1BBBC /* InvertedRow.png */; };
+		1A0EB8541CD0432100D1BBBC /* CrisCross.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A0EB8451CD0432100D1BBBC /* CrisCross.png */; };
+		1A0EB8551CD0432100D1BBBC /* BodyWeightSquats.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A0EB8461CD0432100D1BBBC /* BodyWeightSquats.png */; };
+		1A0EB8561CD0432100D1BBBC /* BeckCongrats.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A0EB8471CD0432100D1BBBC /* BeckCongrats.png */; };
+		1A0EB8571CD0432100D1BBBC /* LakersCongrats.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A0EB8481CD0432100D1BBBC /* LakersCongrats.png */; };
+		1A0EB8581CD0432100D1BBBC /* EliCongrats.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A0EB8491CD0432100D1BBBC /* EliCongrats.png */; };
+		1A0EB8591CD0432100D1BBBC /* FedCongrats.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A0EB84A1CD0432100D1BBBC /* FedCongrats.png */; };
+		1A0EB85A1CD0432100D1BBBC /* DjokerCongrats.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A0EB84B1CD0432100D1BBBC /* DjokerCongrats.png */; };
+		1A0EB85B1CD0432100D1BBBC /* GabbyCongrats.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A0EB84C1CD0432100D1BBBC /* GabbyCongrats.png */; };
+		1A0EB85D1CD043EB00D1BBBC /* ButtBlaster.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A0EB85C1CD043EB00D1BBBC /* ButtBlaster.png */; };
+		1A0EB85F1CD046D800D1BBBC /* SideLunge.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A0EB85E1CD046D800D1BBBC /* SideLunge.png */; };
 		1A1FAB941CADF82B0020C0A9 /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A1FAB931CADF82B0020C0A9 /* arrow.png */; };
 		1A1FAB991CADF9290020C0A9 /* arrow_donw_left.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A1FAB981CADF9290020C0A9 /* arrow_donw_left.png */; };
 		1A1FAB9D1CAE1AA50020C0A9 /* workoutWheel.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A1FAB9C1CAE1AA50020C0A9 /* workoutWheel.png */; };
@@ -57,7 +79,6 @@
 		1A9319E01CCFD3EC00A52523 /* Job-Sports-Coach-Featured.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A9319DE1CCFD3EC00A52523 /* Job-Sports-Coach-Featured.png */; };
 		1A9319E51CCFDADE00A52523 /* workoutRoulette.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1A9319E41CCFDADE00A52523 /* workoutRoulette.jpg */; };
 		1A9319E71CCFDF0F00A52523 /* PersonalTrainingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9319E61CCFDF0F00A52523 /* PersonalTrainingViewController.swift */; };
-		1AA0D2241CD02F8400F820DB /* Screen Shot 2016-04-26 at 7.20.16 PM.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AA0D2231CD02F8400F820DB /* Screen Shot 2016-04-26 at 7.20.16 PM.png */; };
 		1AA9BBEC1CB0AD4D00A6DF4F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A6102641CA86379005D25B0 /* UIKit.framework */; };
 		1AA9BBED1CB0AD4E00A6DF4F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A6102641CA86379005D25B0 /* UIKit.framework */; };
 		1AA9BBEE1CB0AD5100A6DF4F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A6102621CA86371005D25B0 /* QuartzCore.framework */; };
@@ -198,6 +219,28 @@
 		1A0EB82D1CD03BF000D1BBBC /* ProfileTab.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ProfileTab.png; sourceTree = "<group>"; };
 		1A0EB82F1CD03C4A00D1BBBC /* SocialTab.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SocialTab.png; sourceTree = "<group>"; };
 		1A0EB8311CD03CB700D1BBBC /* GameTab.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GameTab.png; sourceTree = "<group>"; };
+		1A0EB8341CD0407A00D1BBBC /* StandingChop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StandingChop.png; sourceTree = "<group>"; };
+		1A0EB8351CD0407A00D1BBBC /* WalkingSingleLeg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WalkingSingleLeg.png; sourceTree = "<group>"; };
+		1A0EB8361CD0407A00D1BBBC /* JackInAndOut.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = JackInAndOut.png; sourceTree = "<group>"; };
+		1A0EB8371CD0407A00D1BBBC /* AlternatingLegDrops.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AlternatingLegDrops.png; sourceTree = "<group>"; };
+		1A0EB83C1CD0408400D1BBBC /* PlankSquatHops.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PlankSquatHops.png; sourceTree = "<group>"; };
+		1A0EB83E1CD0432100D1BBBC /* Tricep.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Tricep.png; sourceTree = "<group>"; };
+		1A0EB83F1CD0432100D1BBBC /* TravelingClimber.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TravelingClimber.png; sourceTree = "<group>"; };
+		1A0EB8401CD0432100D1BBBC /* SquatJump.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SquatJump.png; sourceTree = "<group>"; };
+		1A0EB8411CD0432100D1BBBC /* SidePushUp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SidePushUp.png; sourceTree = "<group>"; };
+		1A0EB8421CD0432100D1BBBC /* PushUps.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PushUps.png; sourceTree = "<group>"; };
+		1A0EB8431CD0432100D1BBBC /* JumpingPushUps.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = JumpingPushUps.png; sourceTree = "<group>"; };
+		1A0EB8441CD0432100D1BBBC /* InvertedRow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = InvertedRow.png; sourceTree = "<group>"; };
+		1A0EB8451CD0432100D1BBBC /* CrisCross.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CrisCross.png; sourceTree = "<group>"; };
+		1A0EB8461CD0432100D1BBBC /* BodyWeightSquats.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BodyWeightSquats.png; sourceTree = "<group>"; };
+		1A0EB8471CD0432100D1BBBC /* BeckCongrats.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BeckCongrats.png; sourceTree = "<group>"; };
+		1A0EB8481CD0432100D1BBBC /* LakersCongrats.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LakersCongrats.png; sourceTree = "<group>"; };
+		1A0EB8491CD0432100D1BBBC /* EliCongrats.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = EliCongrats.png; sourceTree = "<group>"; };
+		1A0EB84A1CD0432100D1BBBC /* FedCongrats.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FedCongrats.png; sourceTree = "<group>"; };
+		1A0EB84B1CD0432100D1BBBC /* DjokerCongrats.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DjokerCongrats.png; sourceTree = "<group>"; };
+		1A0EB84C1CD0432100D1BBBC /* GabbyCongrats.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GabbyCongrats.png; sourceTree = "<group>"; };
+		1A0EB85C1CD043EB00D1BBBC /* ButtBlaster.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ButtBlaster.png; sourceTree = "<group>"; };
+		1A0EB85E1CD046D800D1BBBC /* SideLunge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SideLunge.png; sourceTree = "<group>"; };
 		1A1FAB931CADF82B0020C0A9 /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = "<group>"; };
 		1A1FAB981CADF9290020C0A9 /* arrow_donw_left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow_donw_left.png; sourceTree = "<group>"; };
 		1A1FAB9C1CAE1AA50020C0A9 /* workoutWheel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = workoutWheel.png; sourceTree = "<group>"; };
@@ -245,7 +288,6 @@
 		1A9319DE1CCFD3EC00A52523 /* Job-Sports-Coach-Featured.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Job-Sports-Coach-Featured.png"; sourceTree = "<group>"; };
 		1A9319E41CCFDADE00A52523 /* workoutRoulette.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = workoutRoulette.jpg; sourceTree = "<group>"; };
 		1A9319E61CCFDF0F00A52523 /* PersonalTrainingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalTrainingViewController.swift; sourceTree = "<group>"; };
-		1AA0D2231CD02F8400F820DB /* Screen Shot 2016-04-26 at 7.20.16 PM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Screen Shot 2016-04-26 at 7.20.16 PM.png"; sourceTree = "<group>"; };
 		1AA9BBFF1CB0B01900A6DF4F /* ProfilePage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfilePage.swift; sourceTree = "<group>"; };
 		1AA9BC051CB0B17600A6DF4F /* ParseStarterProject-SwiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ParseStarterProject-SwiftUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1AA9BC071CB0B17600A6DF4F /* ParseStarterProject_SwiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseStarterProject_SwiftUITests.swift; sourceTree = "<group>"; };
@@ -336,6 +378,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1A0EB8331CD03E5200D1BBBC /* WorkoutImages */ = {
+			isa = PBXGroup;
+			children = (
+				1A0EB83C1CD0408400D1BBBC /* PlankSquatHops.png */,
+				1A0EB85C1CD043EB00D1BBBC /* ButtBlaster.png */,
+				1A0EB8341CD0407A00D1BBBC /* StandingChop.png */,
+				1A0EB8351CD0407A00D1BBBC /* WalkingSingleLeg.png */,
+				1A0EB83E1CD0432100D1BBBC /* Tricep.png */,
+				1A0EB83F1CD0432100D1BBBC /* TravelingClimber.png */,
+				1A0EB8401CD0432100D1BBBC /* SquatJump.png */,
+				1A0EB85E1CD046D800D1BBBC /* SideLunge.png */,
+				1A0EB8411CD0432100D1BBBC /* SidePushUp.png */,
+				1A0EB8421CD0432100D1BBBC /* PushUps.png */,
+				1A0EB8431CD0432100D1BBBC /* JumpingPushUps.png */,
+				1A0EB8441CD0432100D1BBBC /* InvertedRow.png */,
+				1A0EB8451CD0432100D1BBBC /* CrisCross.png */,
+				1A0EB8461CD0432100D1BBBC /* BodyWeightSquats.png */,
+				1A0EB8471CD0432100D1BBBC /* BeckCongrats.png */,
+				1A0EB8481CD0432100D1BBBC /* LakersCongrats.png */,
+				1A0EB8491CD0432100D1BBBC /* EliCongrats.png */,
+				1A0EB84A1CD0432100D1BBBC /* FedCongrats.png */,
+				1A0EB84B1CD0432100D1BBBC /* DjokerCongrats.png */,
+				1A0EB84C1CD0432100D1BBBC /* GabbyCongrats.png */,
+				1A0EB8361CD0407A00D1BBBC /* JackInAndOut.png */,
+				1A0EB8371CD0407A00D1BBBC /* AlternatingLegDrops.png */,
+			);
+			name = WorkoutImages;
+			sourceTree = "<group>";
+		};
 		1A1FAB9E1CAE4CA90020C0A9 /* Achievements */ = {
 			isa = PBXGroup;
 			children = (
@@ -392,7 +463,6 @@
 			isa = PBXGroup;
 			children = (
 				1A0EB8311CD03CB700D1BBBC /* GameTab.png */,
-				1AA0D2231CD02F8400F820DB /* Screen Shot 2016-04-26 at 7.20.16 PM.png */,
 				1A0EB82D1CD03BF000D1BBBC /* ProfileTab.png */,
 				1A0EB82F1CD03C4A00D1BBBC /* SocialTab.png */,
 				1A0EB8271CD03AB700D1BBBC /* gift32.png */,
@@ -470,6 +540,7 @@
 		81BA81471A49DA1800E65899 /* ParseStarterProject */ = {
 			isa = PBXGroup;
 			children = (
+				1A0EB8331CD03E5200D1BBBC /* WorkoutImages */,
 				1AA0D2221CD027F800F820DB /* Pictures */,
 				1A1FABC31CAE58A30020C0A9 /* ArenaViewController.swift */,
 				1A6F971A1CAE6A3400C3FE60 /* CouponTableViewController.swift */,
@@ -710,22 +781,37 @@
 			files = (
 				1A5400B61CA7A6240066D6C7 /* starAvm.png in Resources */,
 				1A6F97261CAE6B3500C3FE60 /* shoesitem.png in Resources */,
+				1A0EB84D1CD0432100D1BBBC /* Tricep.png in Resources */,
 				1A5400B81CA7A62C0066D6C7 /* shieldAvm.png in Resources */,
+				1A0EB83D1CD0408400D1BBBC /* PlankSquatHops.png in Resources */,
 				1A1FABB81CAE53860020C0A9 /* Priyesh.png in Resources */,
+				1A0EB8551CD0432100D1BBBC /* BodyWeightSquats.png in Resources */,
 				814C3ACA1B69877600E307BB /* Main.storyboard in Resources */,
 				1A1FABAB1CAE4CA90020C0A9 /* Medal 2-48.png in Resources */,
+				1A0EB8531CD0432100D1BBBC /* InvertedRow.png in Resources */,
+				1A0EB8541CD0432100D1BBBC /* CrisCross.png in Resources */,
+				1A0EB8391CD0407A00D1BBBC /* WalkingSingleLeg.png in Resources */,
+				1A0EB85B1CD0432100D1BBBC /* GabbyCongrats.png in Resources */,
+				1A0EB8511CD0432100D1BBBC /* PushUps.png in Resources */,
+				1A0EB84E1CD0432100D1BBBC /* TravelingClimber.png in Resources */,
 				1A0EB8301CD03C4A00D1BBBC /* SocialTab.png in Resources */,
 				1A0535151CAAD15100A67C3C /* wheelRight.png in Resources */,
 				1A9319E51CCFDADE00A52523 /* workoutRoulette.jpg in Resources */,
 				814C3ACB1B69877600E307BB /* Images.xcassets in Resources */,
 				1A6F97231CAE6B3500C3FE60 /* proteinpowderitem.png in Resources */,
+				1A0EB8501CD0432100D1BBBC /* SidePushUp.png in Resources */,
 				1A1FABA81CAE4CA90020C0A9 /* Diploma 2-50.png in Resources */,
+				1A0EB84F1CD0432100D1BBBC /* SquatJump.png in Resources */,
 				1A1FABA71CAE4CA90020C0A9 /* Bullish-48.png in Resources */,
 				1A9319E01CCFD3EC00A52523 /* Job-Sports-Coach-Featured.png in Resources */,
+				1A0EB85F1CD046D800D1BBBC /* SideLunge.png in Resources */,
 				1A6F97241CAE6B3500C3FE60 /* proteinbaritem.png in Resources */,
 				1A0EB8321CD03CB700D1BBBC /* GameTab.png in Resources */,
+				1A0EB8571CD0432100D1BBBC /* LakersCongrats.png in Resources */,
+				1A0EB8591CD0432100D1BBBC /* FedCongrats.png in Resources */,
 				1A1FABA91CAE4CA90020C0A9 /* Handshake-48.png in Resources */,
 				1A1FAB9D1CAE1AA50020C0A9 /* workoutWheel.png in Resources */,
+				1A0EB8581CD0432100D1BBBC /* EliCongrats.png in Resources */,
 				1A1FABB71CAE53860020C0A9 /* Ravi.png in Resources */,
 				1A9319D61CCFD3CF00A52523 /* SocialWorkout.jpg in Resources */,
 				1A6F97271CAE6B3500C3FE60 /* elasticbanditem.png in Resources */,
@@ -735,17 +821,23 @@
 				1A0535041CA89C7400A67C3C /* pot-of-gold.png in Resources */,
 				1A1FAB991CADF9290020C0A9 /* arrow_donw_left.png in Resources */,
 				1A1FABBC1CAE538F0020C0A9 /* Sriram.png in Resources */,
-				1AA0D2241CD02F8400F820DB /* Screen Shot 2016-04-26 at 7.20.16 PM.png in Resources */,
 				1A1FABB41CAE53700020C0A9 /* ivan.jpg in Resources */,
 				1A1FABAC1CAE4CA90020C0A9 /* Talk-52.png in Resources */,
 				1A1FABBE1CAE538F0020C0A9 /* Spencer.png in Resources */,
 				1A6F97221CAE6B3500C3FE60 /* proteinshakeitem.png in Resources */,
+				1A0EB8561CD0432100D1BBBC /* BeckCongrats.png in Resources */,
+				1A0EB85A1CD0432100D1BBBC /* DjokerCongrats.png in Resources */,
 				1A1FAB941CADF82B0020C0A9 /* arrow.png in Resources */,
+				1A0EB8521CD0432100D1BBBC /* JumpingPushUps.png in Resources */,
 				1A1FABC01CAE54270020C0A9 /* Milap.png in Resources */,
 				1A6F97251CAE6B3500C3FE60 /* beatsheaditem.png in Resources */,
+				1A0EB83A1CD0407A00D1BBBC /* JackInAndOut.png in Resources */,
+				1A0EB8381CD0407A00D1BBBC /* StandingChop.png in Resources */,
 				1A1FABAD1CAE4CA90020C0A9 /* Trophy-48.png in Resources */,
+				1A0EB85D1CD043EB00D1BBBC /* ButtBlaster.png in Resources */,
 				1A1FABAE1CAE4CA90020C0A9 /* Win-48.png in Resources */,
 				1A0EB82E1CD03BF000D1BBBC /* ProfileTab.png in Resources */,
+				1A0EB83B1CD0407A00D1BBBC /* AlternatingLegDrops.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
