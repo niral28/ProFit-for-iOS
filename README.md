@@ -3,3 +3,6 @@ An iOS & Apple Watch app that Gamefiy's health by earning tokens, betting on or 
 
 ## Project Report Link:
 [Final Report](https://drive.google.com/file/d/0B8HViBnAg5D9R0dzZVBybWZNRUE/view?usp=sharing)
+
+## View Screenshots: 
+[App Screenshots](https://drive.google.com/file/d/0B5MHAE1ArhdXd3ZwYk1ERnNaMk0/view?usp=sharing)
